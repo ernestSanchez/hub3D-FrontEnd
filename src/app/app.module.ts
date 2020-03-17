@@ -8,11 +8,17 @@ import {Routes,RouterModule} from '@angular/router';
 import{ HttpClientModule } from '@angular/common/http';
 import {DataService} from  './services/data.service';
 import { GridComponent } from './grid/grid.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import {FormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
 
 const RouterConfig : Routes = [
 {"path":"","component": LandingPageComponent},
 {"path":"home","component": LandingPageComponent},
-// {"path":},
+{"path": "login","component": LoginRegisterComponent},
+{"path":"register","component":RegisterComponent },
+{"path":"user","component":UserComponent},
 ]
 
 
@@ -21,11 +27,16 @@ const RouterConfig : Routes = [
     AppComponent,
     NavbarComponent,
     LandingPageComponent,
-    GridComponent
+    GridComponent,
+    LoginRegisterComponent,
+    RegisterComponent,
+    UserComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(RouterConfig,{useHash:true}),
   ],
   providers: [DataService],
