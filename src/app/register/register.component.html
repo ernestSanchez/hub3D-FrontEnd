@@ -6,14 +6,15 @@
             <h1 class="logiTtext" style="text-align: center;">Register</h1>
             <br>
             <form class="form">
-                <input type="text" class="form-control mb-3" placeholder="Username">
-                <input type="text" class="form-control mb-3" placeholder="name">
-                <input type="email" class="form-control mb-3" placeholder="Email">
-                <input type="password" class="form-control mb-3" placeholder="Password" type="password">
-                <input type="password" class="form-control mb-3" placeholder="Confirm password" type="password">
+                <input [(ngModel)]="data['username']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3" placeholder="Username">
+                <input [(ngModel)]="data['name']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3" placeholder="Name">
+                <input [(ngModel)]="data['secondname']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3" placeholder="Secondname">
+                <input [(ngModel)]="data['email']" [ngModelOptions]="{standalone:true}" type="email" class="form-control mb-3" placeholder="Email">
+                <input [(ngModel)]="data['password']" [ngModelOptions]="{standalone:true}"  type="password" class="form-control mb-3" placeholder="Password">
+                <input type="password"  class="form-control mb-3" placeholder="Confirm password" type="password">
                 
                 <br>
-                <button routerLink="/user" class="btn btn-primary btn-lg btn-block mb-3" type="submit">REGISTER</button>
+                <button routerLink="/user" class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="submit">REGISTER</button>
                 <hr>
                 <div style="text-align: center;">
                     <a routerLink="/home">Home</a>

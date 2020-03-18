@@ -13,8 +13,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Top proyects</a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="!_user.isLogged" class="nav-item">
                 <a class="nav-link" href="#" routerLink="/login">Sign in</a>
+            </li>
+            <li *ngIf="_user.isLogged"  class="nav-item">
+                <a class="nav-link" href="#" type="submit" (click)="logOut()"  routerLink="/home">Sign out</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">user

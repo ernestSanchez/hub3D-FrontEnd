@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {Routes,RouterModule} from '@angular/router';
-import{ HttpClientModule } from '@angular/common/http';
+import{ HttpClientModule,HttpHeaders } from '@angular/common/http';
 import {DataService} from  './services/data.service';
 import { GridComponent } from './grid/grid.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import {FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
+import { UserService } from './services/user.service';
+
 
 const RouterConfig : Routes = [
 {"path":"","component": LandingPageComponent},
@@ -39,7 +41,7 @@ const RouterConfig : Routes = [
     FormsModule,
     RouterModule.forRoot(RouterConfig,{useHash:true}),
   ],
-  providers: [DataService],
+  providers: [DataService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,12 +13,12 @@
                 <p *ngIf="inputUsername.invalid && inputUsername.touched">Campo es obligatorio</p>
 
 
-                <input class="form-control mb-1" placeholder="Password" type="password" required
-                    pattern=" ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$" name="password" #inputPassword="ngModel"
-                    [(ngModel)]="formData['password']">
+                <input class="form-control mb-1" placeholder="Password" type="password" required 
+                    name="password" #inputPassword="ngModel" [(ngModel)]="formData['password']">
 
                 <p *ngIf="inputPassword.invalid && inputPassword.dirty">el formato de la contraseña no es valido</p>
-                <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es obligatorio</p>
+                <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
+                    obligatorio</p>
                 <br>
                 <button class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
                 <button routerLink="/register" class="btn btn-primary btn-lg btn-block mb-3"
