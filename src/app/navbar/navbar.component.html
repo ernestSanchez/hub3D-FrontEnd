@@ -19,8 +19,8 @@
             <li *ngIf="_user.isLogged"  class="nav-item">
                 <a class="nav-link" href="#" type="submit" (click)="logOut()"  routerLink="/home">Sign out</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">user
+            <li *ngIf="_user.isLogged" class="nav-item">
+                <a class="nav-link" href="#"  routerLink="/user">User
                     <i class="fa fa-user-circle-o fa-5" aria-hidden="true" style="color: white;"></i>
                 </a>
             </li>
