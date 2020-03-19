@@ -1,11 +1,41 @@
 .contentPerfil {
-margin-top: 100px;
+margin-top: 32px;
 height: 200px;
 }
 .userPhoto{
-    height: 145px;
+    height: 179px;
     width: auto;
+    
+} 
+ .userPosition{
+    margin-top: -82px;
+    margin-left: -46px;
+    position: absolute;
 }
-.userPosition{
-    margin-top: -270px;
+
+.userButtons {
+    margin-top: -45px;
+    margin-left: 27px;
+   
+}
+
+.titleProfile{
+    border-bottom: 0;
+    text-align: center;
+}
+
+.addButton{
+    margin-top: -8px;
+}
+
+.bgCard {
+    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(216, 246, 250, 0.418));
+}
+.deleteBut {
+    margin-right: -7px;
+}
+
+.welcomeText {
+    text-align: center;
+    margin-top: 48px;
 }
