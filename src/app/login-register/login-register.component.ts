@@ -19,13 +19,6 @@ export class LoginRegisterComponent {
   formData = { "username": "", "password": "" }
 
   submitData() {
-    this._http.post("http://localhost:3000/login", this.formData)
-      .subscribe((response) => {
-        if (response["succes"] === "welcome") {
-          this._user.isLogged = true;
-          document["cookie"] = `megazord=${response["token"]};path=/`;
-          this._router.navigateByUrl("/home")
-        }
-      })
+    this._user.login(this.formData);
   }
 }
