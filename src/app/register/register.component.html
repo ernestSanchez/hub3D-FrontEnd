@@ -5,16 +5,64 @@
             <br>
             <h1 class="logiTtext" style="text-align: center;">Register</h1>
             <br>
-            <form class="form">
-                <input [(ngModel)]="data['username']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3 text-reset" placeholder="Username">
+            <form class="int-form"
+            name="formularioRegistro"
+            (ngSubmit)="myFormulario.form.valid && submit()"
+            #myFormulario="ngForm" >
+
+                <input type="text" class="form-control mb-3 text-reset" placeholder="Username"
+                required 
+                name="userame"
+                #inputusername="ngModel"
+                [(ngModel)]="data['username']" [ngModelOptions]="{standalone:true}"  pattern="[a-z]{3}">
+               <div *ngIf="inputusername.invalid && inputusername.dirty" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Min 3 caracteres</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+
+
                 <input [(ngModel)]="data['name']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3 text-reset" placeholder="Name">
                 <input [(ngModel)]="data['secondname']" [ngModelOptions]="{standalone:true}" type="text" class="form-control mb-3 text-reset" placeholder="Secondname">
-                <input [(ngModel)]="data['email']" [ngModelOptions]="{standalone:true}" type="email" class="form-control mb-3 text-reset" placeholder="Email">
-                <input [(ngModel)]="data['password']" [ngModelOptions]="{standalone:true}"  type="password" class="form-control mb-3 text-reset" placeholder="Password">
-                <input type="password"  class="form-control mb-3" placeholder="Confirm password" type="password">
-                
+
+                <input type="email" class="form-control mb-3 text-reset" placeholder="Email" 
+                required 
+                [(ngModel)]="data['email']" [ngModelOptions]="{standalone:true}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+               
+
+                <input 
+                required
+                name="password"
+                #inputpassword ="ngModel"
+                [(ngModel)]="data['password']" [ngModelOptions]="{standalone:true}"  type="password" class="form-control mb-3 text-reset" placeholder="Password"
+                pattern="(?=.*[a-z]).{8,}">
+
+                <div *ngIf="inputpassword.invalid && inputpassword.dirty" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Min 8 caracteres</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+
+                <input
+                required
+                name="confirmPassword"
+                #inputconfirmPassword = "ngModel"
+                [(ngModel)]="confirmPassword['password']" [ngModelOptions]="{standalone:true}"
+                 type="password"  class="form-control mb-3" placeholder="Confirm password">
+
+                 <div *ngIf="noCoincidePassword" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>No coincide el password</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+    
                 <br>
-                <button routerLink="/user" class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="submit">REGISTER</button>
+                <button  class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="submit">REGISTER</button>
                 <hr>
                 <div style="text-align: center;">
                     <a routerLink="/home">Home</a>

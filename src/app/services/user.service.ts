@@ -12,18 +12,25 @@ export class UserService {
 
   isLogged:boolean = false;
 
+  isRegister:boolean = true;
+
   url:string = "http://localhost:3000"
 
   loggedId:string = "" ;
 
   contents: object = {};
 
+  
+
   Logged() {
     if (document["cookie"] !== "megazord= ; path=/") {
       this.isLogged = true;
+     
     }
   }
   
+
+
 
   login(formData) {
     this._http.post(this.url+"/login", formData)
@@ -33,9 +40,12 @@ export class UserService {
           this.loggedId = response['_id'];
           document["cookie"] = `megazord=${response["token"]};path=/`;
           this._router.navigateByUrl("/home")
+          
         }
       })
   }
+
+
 
   userContent(){
     this._http.get(this.url+"/user/"+this.loggedId)

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row ">
         <div class="card int-form col-md-5 offset-md-4 loginCard">
-            <!-- <img src="https://ih1.redbubble.net/image.430476727.0382/flat,128x128,075,t.u4.jpg" class="card-img-top"> -->
+           
             <br>
             <h1 class="logiTtext">Login</h1>
             <br>
@@ -20,8 +20,8 @@
                 <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
                     obligatorio</p>
                 <br>
-                <button class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
-                <button routerLink="/register" class="btn btn-primary btn-lg btn-block mb-3"
+                <button  class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
+                <button  *ngIf="_user.isRegister" routerLink="/register" class="btn btn-primary btn-lg btn-block mb-3"
                     type="submit">REGISTER</button>
                 <hr>
                 <div style="text-align: center;">
