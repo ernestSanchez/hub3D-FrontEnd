@@ -17,22 +17,33 @@ export class RegisterComponent implements OnInit {
   data = {};
 
   confirmPassword: object = { "password": "" };
+  newUserame = " ";
 
   noCoincidePassword: boolean = false;
+  userNameRepeat: boolean = false;
+
+  refreshPge() {
+    location.reload();
+  }
 
   submit() {
-    if (this.confirmPassword['password'] == this.data['password']) {
-      this._http.post("http://localhost:3000/register", this.data)
-        .subscribe((response) => {
-          console.log(response)
-          this._user.isRegister = false;
-          alert("Nuevo usuario registrado correctamente")
-          this._router.navigate(['/login'])
-        })
+    if (this.newUserame['username'] == this._user.contents['username']) {
+      this.userNameRepeat = true;
     } else {
-      this.noCoincidePassword = true;
+      if (this.confirmPassword['password'] == this.data['password']) {
+        this._http.post("http://localhost:3000/register", this.data)
+          .subscribe((response) => {
+            console.log(response)
+            this._user.isRegister = false;
+            alert("Nuevo usuario registrado correctamente")
+            this._router.navigate(['/login'])
+          })
+      } else {
+        this.noCoincidePassword = true;
+      }
     }
   }
+
 
   ngOnInit(): void {
   }

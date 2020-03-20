@@ -12,11 +12,20 @@
 
                 <input type="text" class="form-control mb-3 text-reset" placeholder="Username"
                 required 
-                name="userame"
-                #inputusername="ngModel"
+                name="newUserame"
+                #inputnewUserame="ngModel"
                 [(ngModel)]="data['username']" [ngModelOptions]="{standalone:true}"  pattern="[a-z]{3}">
-               <div *ngIf="inputusername.invalid && inputusername.dirty" class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Min 3 caracteres</strong>
+               
+                <div *ngIf="userNameRepeat" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Este usuario ya existe intente con otro o añada un numero</strong>
+                    <button (click)="refreshPge()"  type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+               
+               
+                <div *ngIf="inputnewUserame.invalid && inputnewUserame.dirty" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Min 3 caracteres *campo obligatorio </strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,6 +48,7 @@
                 [(ngModel)]="data['password']" [ngModelOptions]="{standalone:true}"  type="password" class="form-control mb-3 text-reset" placeholder="Password"
                 pattern="(?=.*[a-z]).{8,}">
 
+         
                 <div *ngIf="inputpassword.invalid && inputpassword.dirty" class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Min 8 caracteres</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -11,23 +11,23 @@ export class UserService {
   constructor(public _http: HttpClient, public _router: Router ) { }
 
   isLogged:boolean = false;
-
   isRegister:boolean = true;
+ 
 
   url:string = "http://localhost:3000"
 
   loggedId:string = "" ;
-
+  
   contents: object = {};
 
   
 
-  Logged() {
-    if (document["cookie"] !== "megazord= ; path=/") {
-      this.isLogged = true;
+  // Logged() {
+  //   if (document["cookie"] !== "megazord= ; path=/") {
+  //     this.isLogged = true;
      
-    }
-  }
+  //   }
+  // }
   
 
 
