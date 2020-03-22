@@ -1,9 +1,10 @@
 .loginCard {
-    margin-top: 10%;
+    padding: 40px;
     border: 0;
 }
-.logiTtext{
+.loginText{
     text-align: center;
+    color: white;
 }
 
 .lolo {
@@ -13,3 +14,22 @@
 .p {
     color: red;
 }
+
+.bgLoginCard {
+    background-image: linear-gradient(
+        to right,
+        rgba(7, 7, 26, 0.87), 
+        rgba(8, 13, 37, 0.3)
+      ),url('/assets/images/logoPlanoBlanco.png');
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+    /* background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(216, 246, 250, 0.418)); */
+}
+/* @media only screen and (max-width: 767px) {
+    .bgLoginCard{
+      background-image: url('/assets/images/testLogo_01.png');
+    }
+  } */

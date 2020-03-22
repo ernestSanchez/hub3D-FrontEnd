@@ -7,14 +7,17 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Hub3D <span class="sr-only">(current)</span></a>
+           <li class="nav-item active">
+            <img class="logo" src="/assets/images/logoPlanoBlanco.png">
+           </li>
+            <li class="nav-item active ">
+               <a class="nav-link" href="#">Hub3D <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Top proyects</a>
             </li>
-            <li *ngIf="!_user.isLogged" class="nav-item">
-                <a class="nav-link" href="#" routerLink="/login">Sign in</a>
+            <li *ngIf="!_user.isLogged" class="nav-item active">
+                <a class="nav-link  textNavbar" href="#" routerLink="/login">Sign in</a>
             </li>
             <li *ngIf="_user.isLogged"  class="nav-item">
                 <a class="nav-link" href="#" type="submit" (click)="logOut()"  routerLink="/home">Sign out</a>

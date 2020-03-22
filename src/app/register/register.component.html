@@ -18,7 +18,7 @@
                
                 <div *ngIf="userNameRepeat" class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Este usuario ya existe intente con otro o añada un numero</strong>
-                    <button (click)="refreshPge()"  type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button (click)="refreshPage()"  type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -55,6 +55,13 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                    
+                <div *ngIf="minCaractersPassword" class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>tu contraseña tiene menos de 8 caracteres</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
 
                 <input
@@ -72,7 +79,7 @@
                   </div>
     
                 <br>
-                <button  class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="submit">REGISTER</button>
+                <button  class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="button">REGISTER</button>
                 <hr>
                 <div style="text-align: center;">
                     <a routerLink="/home">Home</a>

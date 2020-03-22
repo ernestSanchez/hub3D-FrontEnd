@@ -20,6 +20,7 @@ export class UserService {
   
   contents: object = {};
 
+  allUsersContents: object = {};
   
 
   // Logged() {
@@ -45,7 +46,12 @@ export class UserService {
       })
   }
 
-
+  allUsersContent(){
+    this._http.get(this.url+"/users")
+    .subscribe((response)=>{
+      this.allUsersContents = response
+    })
+  }
 
   userContent(){
     this._http.get(this.url+"/user/"+this.loggedId)

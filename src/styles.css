@@ -1,7 +1,16 @@
-/* .bgSign {
-    background-image: url('/assets/images/globe-bg.jpg');
+
+.bgPag {
+    background-image: linear-gradient(
+      
+        rgba(0, 0, 0, 0.966), 
+        rgba(2, 3, 7, 0.609),
+        rgba(0, 0, 0, 0.966)
+
+      ),url('/assets/images/bgHub3d.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: linear-gradient(rgb(98, 45, 245), rgb(56, 58, 150));
-} */
+    
+    /* background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(216, 246, 250, 0.418)); */
+}
+

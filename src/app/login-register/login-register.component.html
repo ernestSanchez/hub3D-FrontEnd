@@ -1,37 +1,46 @@
-<div class="container-fluid">
-    <div class="row ">
-        <div class="card int-form col-md-5 offset-md-4 loginCard">
-           
-            <br>
-            <h1 class="logiTtext">Login</h1>
-            <br>
-            <form class="int-form" name="formularioRegistro" (ngSubmit)="miFormulario.form.valid && submitData()"
-                #miFormulario="ngForm">
-                <input type="text" class="form-control mb-3" placeholder="Username" required name="username"
-                    #inputUsername="ngModel" [(ngModel)]="formData['username']">
-
-                <p *ngIf="inputUsername.invalid && inputUsername.touched">Campo es obligatorio</p>
-
-
-                <input class="form-control mb-1" placeholder="Password" type="password" required 
-                    name="password" #inputPassword="ngModel" [(ngModel)]="formData['password']">
-
-                <p *ngIf="inputPassword.invalid && inputPassword.dirty">el formato de la contraseña no es valido</p>
-                <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
-                    obligatorio</p>
+<div class="container-fluid bgLoginCard">
+    <div class="row">
+     
+            <div class=" col-md-6 offset-md-3 loginCard">
+                <div class="card-body loginCard">
+                <div></div>
                 <br>
-                <button  class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
-                <button  *ngIf="_user.isRegister" routerLink="/register" class="btn btn-primary btn-lg btn-block mb-3"
-                    type="submit">REGISTER</button>
-                <hr>
-                <div style="text-align: center;">
-                    <a routerLink=" ">Forgot password? </a>
-                    <br>
-                    <br>
-                    <a routerLink="/home">Home</a>
-                </div>
+                <h1 class="loginText font-weight-bold">Login</h1>
                 <br>
-            </form>
+                <form class="int-form" name="formularioRegistro" (ngSubmit)="miFormulario.form.valid && submitData()"
+                    #miFormulario="ngForm">
+                    <input type="text" class="form-control mb-3" placeholder="Username" required name="username"
+                        #inputUsername="ngModel" [(ngModel)]="formData['username']">
+
+                    <div *ngIf="inputUsername.invalid && inputUsername.touched"
+                        class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>*Campo obligatorio</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
+                    <input class="form-control mb-1" placeholder="Password" type="password" required name="password"
+                        #inputPassword="ngModel" [(ngModel)]="formData['password']">
+
+                    <p *ngIf="inputPassword.invalid && inputPassword.dirty">el formato de la contraseña no es valido</p>
+                    <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
+                        obligatorio</p>
+                    <br>
+                    <button class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
+                    <button *ngIf="_user.isRegister" routerLink="/register"
+                        class="btn btn-primary btn-lg btn-block mb-3" type="submit">REGISTER</button>
+                    <hr>
+                    <div style="text-align: center;">
+                        <a class="loginText" routerLink=" ">Forgot password? </a>
+                        <br>
+                        <br>
+                        <a routerLink="/home" class="loginText">Home</a>
+                    </div>
+                    <br>
+                </form>
+            </div>
         </div>
     </div>
 </div>
