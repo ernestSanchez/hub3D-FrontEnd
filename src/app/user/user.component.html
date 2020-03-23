@@ -21,10 +21,22 @@
 
             <div class="card-header titleProfile row">
                 <div class="col-sm-10 offset-md-1">
-                    <h5>{{_user.contents['name']}}</h5>
-                    <h6>especiality</h6>
-                    <h6>stautus professional/estudent</h6>
-                    <h6>location</h6>
+                    <div class="int-form"></div>
+                    <h5 *ngIf="_user.infoUserName">{{_user.contents['name']}}</h5>
+                    <h5 *ngIf="!_user.infoUserName">name</h5>
+
+                    <h6 *ngIf="_user.infoUserHablidad">{{_user.contents['habilidad']}}</h6>
+                    <h5 *ngIf="!_user.infoUserHablidad">especiality</h5>
+
+                    <h6 *ngIf="_user.infoUserSatus">{{_user.contents['status']}}</h6>
+                    <h5 *ngIf="!_user.infoUserSatus">status</h5>
+
+                    <h6 *ngIf="_user.infoUserWorkStatus">{{_user.contents['workStatus']}}</h6>
+                    <h5 *ngIf="!_user.infoUserWorkStatus">workStatus</h5>
+
+                    <h6 *ngIf="_user.infoUserLocation">{{_user.contents['location']}}</h6>
+                    <h6 *ngIf="!_user.infoUserLocation">location</h6>
+
                     <button type="button" class="btn btn-outline-info btn-sm" disabled>
                         Profile viewers <span class="badge badge-light">9</span>
                         <span class="sr-only">unread messages</span>
@@ -36,50 +48,70 @@
                         class="btn btn-outline-primary rounded-circle" data-toggle="modal" data-target="#editHeader">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                <!-- Modal -->
+                    <!-- Modal -->
                     <div class="modal fade" id="editHeader" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editHeader">Modal title</h5>
+                                    <h5 class="modal-title" id="editHeader">Datos usuario</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Especiality</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                        </select>
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Status</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                    </div>
-                                <div class="row">
-                                    <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">City</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Country</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                    </div>
-                                </div>
-                                </div>
-                                </form>
+                                    <form class="int-form"
+                                    name="formularioUsuario"
+                                    (ngSubmit)="usuarioData.form.valid && submitModify()"
+                                    #usuarioData="ngForm"
+                                    >
+                                        <div class="form-group">
+                                            <label for="especiality">Especiality</label>
+                                            <select class="form-control" id="especiality"
+                                            [(ngModel)]="_user.contents['habilidad']" [ngModelOptions]="{standalone:true}">
+                                                <option value="rigger">rigger</option>
+                                                <option value="modeller">modeller</option>
+                                                <option value="animador">animador</option>
+                                                <option value="concept-Artist">concept-Artist</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select class="form-control status" id="status"
+                                            [(ngModel)]="_user.contents['status']" [ngModelOptions]="{standalone:true}">
+                                                <option value="student">student</option>
+                                                <option  value="professional">professional</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="employment situation">Employment situation</label>
+                                            <select class="form-control situation" id="employment situation"
+                                            [(ngModel)]="_user.contents['situation']" [ngModelOptions]="{standalone:true}">
+                                                <option>working</option>
+                                                <option>looking for a job</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="recipient-City" class="col-form-label">City</label>
+                                                    <input type="text" class="form-control" id="recipient-City"
+                                                    [(ngModel)]="_user.contents['location'][0]" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="recipient-Country" class="col-form-label">Country</label>
+                                                    <input type="text" class="form-control " id="recipient-Country"
+                                                    [(ngModel)]="_user.contents['location'][1]" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button (click)="submitModify()"  data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -119,26 +151,26 @@
                                                         <input type="text" class="form-control" id="recipient-name">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Cargo en la
+                                                        <label for="recipient-rango" class="col-form-label">Cargo en la
                                                             empresa</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
+                                                        <input type="text" class="form-control" id="recipient-rango">
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-sm">
-                                                            <label for="recipient-name" class="col-form-label">Fecha
+                                                            <label for="recipient-fechaInit" class="col-form-label">Fecha
                                                                 inicio</label>
-                                                            <input type="date" class="form-control" id="recipient-name">
+                                                            <input type="date" class="form-control" id="recipient-fechaInit">
                                                         </div>
                                                         <div class="form-group col-sm">
-                                                            <label for="recipient-name" class="col-form-label">Fecha
+                                                            <label for="recipient-fechaFin" class="col-form-label">Fecha
                                                                 fin</label>
-                                                            <input type="date" class="form-control" id="recipient-name">
+                                                            <input type="date" class="form-control" id="recipient-fechaFin">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label">Url trabajos
+                                                        <label for="recipient-url" class="col-form-label">Url trabajos
                                                             realizados en la empresa</label>
-                                                        <input type="url" class="form-control" id="recipient-name">
+                                                        <input type="url" class="form-control" id="recipient-url">
                                                     </div>
                                                 </form>
                                             </div>

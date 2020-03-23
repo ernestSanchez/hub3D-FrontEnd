@@ -29,8 +29,6 @@ export class RegisterComponent implements OnInit {
 
 
   submit() {
-    console.log('send send');
-
   if (this.confirmPassword['password'] === this.data['password']) {
         this._http.post("http://localhost:3000/register", this.data)
           .subscribe((response) => {
