@@ -22,20 +22,21 @@
             <div class="card-header titleProfile row">
                 <div class="col-sm-10 offset-md-1">
                     <div class="int-form"></div>
-                    <h5 *ngIf="_user.infoUserName">{{_user.contents['name']}}</h5>
-                    <h5 *ngIf="!_user.infoUserName">name</h5>
+                    <h6 class="font-weight-light">name</h6>
+                    <h5>{{_user.contents['name']}}</h5>
 
-                    <h6 *ngIf="_user.infoUserHablidad">{{_user.contents['habilidad']}}</h6>
-                    <h5 *ngIf="!_user.infoUserHablidad">especiality</h5>
+                    <h6 class="font-weight-light">especiality</h6>
+                    <h6>{{_user.contents['habilidad']}}</h6>
 
-                    <h6 *ngIf="_user.infoUserSatus">{{_user.contents['status']}}</h6>
-                    <h5 *ngIf="!_user.infoUserSatus">status</h5>
+                    <h6 class="font-weight-light">status</h6>
+                    <h6>{{_user.contents['status']}}</h6>
 
-                    <h6 *ngIf="_user.infoUserWorkStatus">{{_user.contents['workStatus']}}</h6>
-                    <h5 *ngIf="!_user.infoUserWorkStatus">workStatus</h5>
+                    <h6 class="font-weight-light">workStatus</h6>
+                    <h6>{{_user.contents['workStatus']}}</h6>
 
-                    <h6 *ngIf="_user.infoUserLocation">{{_user.contents['location']}}</h6>
-                    <h6 *ngIf="!_user.infoUserLocation">location</h6>
+                    <h6 class="font-weight-light">location</h6>
+                    <h6>{{_user.contents['location']}}</h6>
+
 
                     <button type="button" class="btn btn-outline-info btn-sm" disabled>
                         Profile viewers <span class="badge badge-light">9</span>
@@ -148,10 +149,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form  class="int-form" name="formularioExperiencia"
-                                                (nfSubmit)="experienciaData.form.valid && submitExperience()"
-                                                #experienciaData="ngForm"> 
-
+                                                <form class="int-form" >
                                                     <div class="form-group">
                                                         <label for="recipient-Empresa"
                                                             class="col-form-label">Empresa</label>
@@ -164,9 +162,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="employment Cargo">Cargo en empresa</label>
-                                                        <select class="form-control Cargo" id="employment Cargo"
-                                                            [(ngModel)]="_user.contents['Cargo']"
-                                                            [ngModelOptions]="{standalone:true}">
+                                                        <select class="form-control Cargo" id="employment Cargo">
                                                             <option value="lead">lead</option>
                                                             <option value="mid">mid</option>
                                                             <option value="junior">junior</option>
@@ -198,7 +194,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="button" (click)="submitModify()" class="btn btn-primary">Create new
+                                                <button type="button" (click)="submitModify()"
+                                                    class="btn btn-primary">Create new
                                                     experience</button>
                                             </div>
                                         </div>
@@ -220,12 +217,13 @@
                             <tbody>
 
                                 <tr>
-                                    <td scope="row">{{_user.contents['empresa']}}</td>
-                                    <td bg-info>{{_user.contents['especialidad']}}</td>
-                                    <td>{{_user.contents['cargo']}}</td>
-                                    <td>{{_user.contents['fechaIni']['fechaFin']}}</td>
-                                    <td><a href="{{_user.contents['EmpresaUrl']}}" target="_blank">{{_user.contents['EmpresaUrl']}}
-                                            </a></td>
+                                    <td scope="row">{{_user.contents['empresa']}}hola</td>
+                                    <td bg-info>{{_user.contents['especialidad']}}hola</td>
+                                    <td>{{_user.contents['cargo']}}hola</td>
+                                    <td>{{_user.contents['fechaIni']['fechaFin']}}hola</td>
+                                    <td><a href="{{_user.contents['EmpresaUrl']}}"
+                                            target="_blank">{{_user.contents['EmpresaUrl']}}hola
+                                        </a></td>
                                     <td>
                                         <button *ngIf="_user.isLogged" type="button"
                                             class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil"
@@ -239,9 +237,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div *ngIf="_user.isLogged">
+                        <div>
                             <hr>
-                            <div class="input-group mb-3 col-md-10">
+                            <div class="input-group mb-3 col-md-10 ">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon3">insert url reel/portfolio</span>
                                 </div>
@@ -249,14 +247,14 @@
                                     placeholder="https://example.com/users/">
                                 <button class="btn btn-primary" type="submit" value="Submit">Send</button>
                             </div>
+                            <div >
+                                <button routerLink="/proyectCreate" type="button" class="btn btn-outline-success btn-lg btn-block">Crear Proyecto</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+           
         </div>
-
-
     </div>
-
-
 </div>

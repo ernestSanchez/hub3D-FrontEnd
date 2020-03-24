@@ -33,29 +33,29 @@ export class UserComponent implements OnInit {
     }
   }
 
-submitModify(){
+  submitModify() {
 
-  let newUserModify: object = {
-    "_id": this._user.loggedId ,
-    "username": this._user.contents['username'],
-    "name":  this._user.contents['name'],
-    "secondname": this._user.contents['secondname'],
-    "email": this._user.contents['email'],
-    "password":  this._user.contents['password'],
-    "habilidad": this._user.contents['habilidad'],
-    "status": this._user.contents['status'],
-    "workStatus": this._user.contents['workStatus'],
-    "location": this._user.contents['location']
-    
-}
+    let newUserModify: object = {
+      "_id": this._user.loggedId,
+      "username": this._user.contents['username'],
+      "name": this._user.contents['name'],
+      "secondname": this._user.contents['secondname'],
+      "email": this._user.contents['email'],
+      "password": this._user.contents['password'],
+      "habilidad": this._user.contents['habilidad'],
+      "status": this._user.contents['status'],
+      "workStatus": this._user.contents['workStatus'],
+      "location": this._user.contents['location']
 
-this._user.userModification(newUserModify);
+    }
 
-}
+    this._user.userModification(newUserModify);
 
-submitExperience(){
-  this._data.addExperience()
-}
+  }
+
+  // submitExperience(){
+  //   this._data.addExperience()
+  // }
 
 
 

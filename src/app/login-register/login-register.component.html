@@ -1,5 +1,5 @@
 <div class="container-fluid bgLoginCard">
-    <div class="row">
+    <div class="row " style="padding: 9vw;">
      
             <div class=" col-md-6 offset-md-3 loginCard">
                 <div class="card-body loginCard">
@@ -29,8 +29,10 @@
                         obligatorio</p>
                     <br>
                     <button class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>
-                    <button *ngIf="_user.isRegister" routerLink="/register"
+                    <div *ngIf="_user.isRegister">
+                    <button routerLink="/register"
                         class="btn btn-primary btn-lg btn-block mb-3" type="submit">REGISTER</button>
+                    </div>
                     <hr>
                     <div style="text-align: center;">
                         <a class="loginText font-weight-bolder" routerLink=" ">Forgot password? </a>

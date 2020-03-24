@@ -14,15 +14,22 @@
                 <div class="container">
                     <h1 class=" mt-3 textCreateProyect">Nuevo Proyecto</h1>
                     <hr class="textCreateProyect">
-                    <form>
+                    <form name="addNewProyect"
+                    (ngSubmit)="addProyect.form.valid && submitNewProyect()"
+                    #addProyect="ngForm">
+
                         <div class="form-group">
                             <label for="NameProyect" class="textCreateProyect">Nombre proyecto</label>
                             <input type="text" class="form-control NameProyect" id="NameProyect"
-                                placeholder="Nombre proyect">
+                                placeholder="Nombre proyect"
+                                [(ngModel)]="_data.dataProyect['nombre']"
+                                [ngModelOptions]="{standalone:true}">
                         </div>
                         <div class="form-group">
                             <label for="categoriaProyect" class="textCreateProyect">Categoria</label>
-                            <select class="form-control categoriaProyect" id="categoriaProyect">
+                            <select class="form-control categoriaProyect" id="categoriaProyect"
+                            [(ngModel)]="_data.dataProyect['categoria']"
+                            [ngModelOptions]="{standalone:true}">
                                 <option>selecciona Categoria</option>
                                 <option value="rig">rig</option>
                                 <option value="model">model</option>
@@ -32,7 +39,9 @@
                         </div>
                         <div class="form-group">
                             <label for="tipoProyecto" class="textCreateProyect">tipo de Proyecto</label>
-                            <select class="form-control tipoProyecto" id="tipoProyecto">
+                            <select class="form-control tipoProyecto" id="tipoProyecto"
+                            [(ngModel)]="_data.dataProyect['tipo']"
+                            [ngModelOptions]="{standalone:true}">
                                 <option>selecciona tipo</option>
                                 <option value="character">character</option>
                                 <option value="prop">prop</option>
@@ -42,7 +51,9 @@
                         </div>
                         <div class="form-group">
                             <label for="requierimiento " class="textCreateProyect">Que requieres para tu proyecto?</label>
-                            <select class="form-control requierimiento" id="requierimiento">
+                            <select class="form-control requierimiento" id="requierimiento"
+                            [(ngModel)]="_data.dataProyect['requierimiento']"
+                            [ngModelOptions]="{standalone:true}">
                                 <option value="">selecciona Categoria</option>
                                 <option value="rigger">rigger</option>
                                 <option value="modeller">modeller</option>
@@ -51,7 +62,10 @@
                         </div>
                              <div class="form-group">
                             <label for="descripcionProyect" class="textCreateProyect">Descripcion del proyecto</label>
-                            <textarea class="form-control" placeholder=" max 250 caracteres" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" placeholder=" max 250 caracteres" id="exampleFormControlTextarea1" rows="3"
+                            [(ngModel)]="_data.dataProyect['descripcion']"
+                            [ngModelOptions]="{standalone:true}">
+                            </textarea>
                         </div>
                         <div class="input-group mt-4">
                             <div class="custom-file">
@@ -59,11 +73,14 @@
                               <label class="custom-file-label" for="inputGroupFile04">Elija el archivo</label>
                             </div>
                             <div class="input-group-append">
-                              <button class="btn btn-outline-info" type="button" id="inputGroupFileAddon04">Añadir</button>
+                              <button class="btn btn-outline-info" type="button" id="inputGroupFileAddon04"
+                              [(ngModel)]="_data.dataArchive"
+                              [ngModelOptions]="{standalone:true}">
+                              Añadir</button>
                             </div>
                           </div>
                         <div>
-                        <button type="button" class="btn btn-primary btn-lg btn-success mt-4">Crear proyecto</button>  
+                        <button (click)="submitNewProyect()" type="button" class="btn btn-primary btn-lg btn-success mt-4">Crear proyecto</button>  
                         </div>
                     </form>
                     <br>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-proyectcreate',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectcreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _data : DataService) { }
 
+
+submitNewProyect(){
+  this._data.createProyect();
+}
+  
   ngOnInit(): void {
   }
 
