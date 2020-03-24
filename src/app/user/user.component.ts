@@ -46,13 +46,16 @@ submitModify(){
     "status": this._user.contents['status'],
     "workStatus": this._user.contents['workStatus'],
     "location": this._user.contents['location']
+    
 }
 
 this._user.userModification(newUserModify);
 
 }
 
-
+submitExperience(){
+  this._data.addExperience()
+}
 
 
 

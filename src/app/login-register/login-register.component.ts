@@ -18,6 +18,8 @@ export class LoginRegisterComponent {
   title = 'hub3d';
   formData = { "username": "", "password": "" }
 
+
+
   submitData() {
     this._user.login(this.formData);
   }

@@ -60,15 +60,13 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="int-form"
-                                    name="formularioUsuario"
-                                    (ngSubmit)="usuarioData.form.valid && submitModify()"
-                                    #usuarioData="ngForm"
-                                    >
+                                    <form class="int-form" name="formularioUsuario"
+                                        (ngSubmit)="usuarioData.form.valid && submitModify()" #usuarioData="ngForm">
                                         <div class="form-group">
                                             <label for="especiality">Especiality</label>
                                             <select class="form-control" id="especiality"
-                                            [(ngModel)]="_user.contents['habilidad']" [ngModelOptions]="{standalone:true}">
+                                                [(ngModel)]="_user.contents['habilidad']"
+                                                [ngModelOptions]="{standalone:true}">
                                                 <option value="rigger">rigger</option>
                                                 <option value="modeller">modeller</option>
                                                 <option value="animador">animador</option>
@@ -78,17 +76,19 @@
                                         <div class="form-group">
                                             <label for="status">Status</label>
                                             <select class="form-control status" id="status"
-                                            [(ngModel)]="_user.contents['status']" [ngModelOptions]="{standalone:true}">
+                                                [(ngModel)]="_user.contents['status']"
+                                                [ngModelOptions]="{standalone:true}">
                                                 <option value="student">student</option>
-                                                <option  value="professional">professional</option>
+                                                <option value="professional">professional</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="employment situation">Employment situation</label>
                                             <select class="form-control situation" id="employment situation"
-                                            [(ngModel)]="_user.contents['situation']" [ngModelOptions]="{standalone:true}">
-                                                <option>working</option>
-                                                <option>looking for a job</option>
+                                                [(ngModel)]="_user.contents['situation']"
+                                                [ngModelOptions]="{standalone:true}">
+                                                <option value="working">working</option>
+                                                <option value="looking for a job">looking for a job</option>
                                             </select>
                                         </div>
                                         <div class="row">
@@ -96,14 +96,17 @@
                                                 <div class="form-group">
                                                     <label for="recipient-City" class="col-form-label">City</label>
                                                     <input type="text" class="form-control" id="recipient-City"
-                                                    [(ngModel)]="_user.contents['location'][0]" [ngModelOptions]="{standalone:true}">
+                                                        [(ngModel)]="_user.contents['location'][0]"
+                                                        [ngModelOptions]="{standalone:true}">
                                                 </div>
                                             </div>
                                             <div class="col-sm">
                                                 <div class="form-group">
-                                                    <label for="recipient-Country" class="col-form-label">Country</label>
+                                                    <label for="recipient-Country"
+                                                        class="col-form-label">Country</label>
                                                     <input type="text" class="form-control " id="recipient-Country"
-                                                    [(ngModel)]="_user.contents['location'][1]" [ngModelOptions]="{standalone:true}">
+                                                        [(ngModel)]="_user.contents['location'][1]"
+                                                        [ngModelOptions]="{standalone:true}">
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +114,8 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button (click)="submitModify()"  data-dismiss="modal" type="button" class="btn btn-primary">Save changes</button>
+                                    <button (click)="submitModify()" data-dismiss="modal" type="button"
+                                        class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -144,27 +148,44 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
+                                                <form  class="int-form" name="formularioExperiencia"
+                                                (nfSubmit)="experienciaData.form.valid && submitExperience()"
+                                                #experienciaData="ngForm"> 
+
                                                     <div class="form-group">
-                                                        <label for="recipient-name"
+                                                        <label for="recipient-Empresa"
                                                             class="col-form-label">Empresa</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
+                                                        <input type="text" class="form-control" id="recipient-Empresa">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="recipient-rango" class="col-form-label">Cargo en la
-                                                            empresa</label>
+                                                        <label for="recipient-rango" class="col-form-label">distiplina
+                                                        </label>
                                                         <input type="text" class="form-control" id="recipient-rango">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="employment Cargo">Cargo en empresa</label>
+                                                        <select class="form-control Cargo" id="employment Cargo"
+                                                            [(ngModel)]="_user.contents['Cargo']"
+                                                            [ngModelOptions]="{standalone:true}">
+                                                            <option value="lead">lead</option>
+                                                            <option value="mid">mid</option>
+                                                            <option value="junior">junior</option>
+                                                            <option value="senior">senior</option>
+                                                        </select>
                                                     </div>
                                                     <div class="row">
                                                         <div class="form-group col-sm">
-                                                            <label for="recipient-fechaInit" class="col-form-label">Fecha
+                                                            <label for="recipient-fechaInit"
+                                                                class="col-form-label">Fecha
                                                                 inicio</label>
-                                                            <input type="date" class="form-control" id="recipient-fechaInit">
+                                                            <input type="date" class="form-control"
+                                                                id="recipient-fechaInit">
                                                         </div>
                                                         <div class="form-group col-sm">
                                                             <label for="recipient-fechaFin" class="col-form-label">Fecha
                                                                 fin</label>
-                                                            <input type="date" class="form-control" id="recipient-fechaFin">
+                                                            <input type="date" class="form-control"
+                                                                id="recipient-fechaFin">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -177,7 +198,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Create new
+                                                <button type="button" (click)="submitModify()" class="btn btn-primary">Create new
                                                     experience</button>
                                             </div>
                                         </div>
@@ -189,6 +210,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">empresa</th>
+                                    <th scope="col">especialidad</th>
                                     <th scope="col">cargo</th>
                                     <th scope="col">tiempo</th>
                                     <th scope="col">Url trabajo realizado en empresa</th>
@@ -198,11 +220,12 @@
                             <tbody>
 
                                 <tr>
-                                    <td scope="row">nombre</td>
-                                    <td bg-info>tipo de cargo</td>
-                                    <td>tiempo</td>
-                                    <td><a href="https://www.youtube.com/watch?v=cfRz-2wqaOA" target="_blank">enlace
-                                            proyecto con la empresa</a></td>
+                                    <td scope="row">{{_user.contents['empresa']}}</td>
+                                    <td bg-info>{{_user.contents['especialidad']}}</td>
+                                    <td>{{_user.contents['cargo']}}</td>
+                                    <td>{{_user.contents['fechaIni']['fechaFin']}}</td>
+                                    <td><a href="{{_user.contents['EmpresaUrl']}}" target="_blank">{{_user.contents['EmpresaUrl']}}
+                                            </a></td>
                                     <td>
                                         <button *ngIf="_user.isLogged" type="button"
                                             class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil"

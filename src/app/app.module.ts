@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './services/user.service';
+import { ProyectcreateComponent } from './proyectcreate/proyectcreate.component';
 
 
 const RouterConfig : Routes = [
@@ -21,6 +22,7 @@ const RouterConfig : Routes = [
 {"path": "login","component": LoginRegisterComponent},
 {"path":"register","component":RegisterComponent },
 {"path":"user","component":UserComponent},
+{"path":"proyectCreate","component":ProyectcreateComponent},
 ]
 
 
@@ -33,6 +35,7 @@ const RouterConfig : Routes = [
     LoginRegisterComponent,
     RegisterComponent,
     UserComponent,
+    ProyectcreateComponent,
 
   ],
   imports: [

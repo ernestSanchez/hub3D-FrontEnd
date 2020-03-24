@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Routes } from '@angular/router';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(public _http: HttpClient, public _router: Router) { }
+  constructor(public _http: HttpClient, public _router: Router ) { }
 
   isLogged: boolean = false;
   isRegister: boolean = true;
@@ -27,16 +28,11 @@ export class UserService {
   allUsersContents: object = {};
 
 
-
-
-
-
-
   login(formData) {
-    this._http.post(this.url + "/login", formData,)
+    this._http.post(this.url + "/login", formData)
       .subscribe((response) => {
         if (response["success"] === "welcome") {
-          
+
           this.isLogged = true;
           this.loggedId = response['_id'];
           this.infoUserName = true;
@@ -67,10 +63,10 @@ export class UserService {
       })
   }
   userModification(newUserModify: object) {
-    const headers = new HttpHeaders({token:document["cookie"]});
-      this._http.put(this.url + "/modifyUser", newUserModify,{ headers })
+    const headers = new HttpHeaders({ token: document["cookie"] });
+    this._http.put(this.url + "/modifyUser", newUserModify, { headers })
       .subscribe((response) => {
-     
+
       })
   }
 
