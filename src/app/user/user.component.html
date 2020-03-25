@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div class="conatiner-fluid">
-    <div class="welcomeText">
-        <h1>WELCOME USER IN HUB3D</h1>
+    <div class="welcomeText text-uppercase">
+        <h1>WELCOME {{_user.contents['username']}} IN HUB3D</h1>
     </div>
-    <div class="contentPerfil row">
+    <div class="row mt-4">
         <div class="card form col-md-10 offset-md-1 shadow p-3 mb-5 bgCard">
             <div class="userPosition col-md-1 offset-md-1">
                 <div>
@@ -11,7 +11,8 @@
                         alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
 
                     <div class="col-10 col-md-1 offset-md-1 userButtons">
-                        <button type="button" class="btn btn-primary mb-2 btn-sm">Contact/User</button>
+                        <button type="button" class="btn btn-primary mb-2 btn-sm" disabled><a href={{_user.mailUser}}
+                                target="_top" class="textCreateProyect">Contact/User</a></button>
                         <br>
                         <button type="button" class="btn btn-primary btn-sm">Demo/Reel</button>
 
@@ -142,14 +143,14 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">New experice</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">New experience</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="int-form" >
+                                                <form class="int-form">
                                                     <div class="form-group">
                                                         <label for="recipient-Empresa"
                                                             class="col-form-label">Empresa</label>
@@ -198,6 +199,7 @@
                                                     class="btn btn-primary">Create new
                                                     experience</button>
                                             </div>
+                                       
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +212,7 @@
                                     <th scope="col">especialidad</th>
                                     <th scope="col">cargo</th>
                                     <th scope="col">tiempo</th>
-                                    <th scope="col">Url trabajo realizado en empresa</th>
+                                    <th scope="col">Url creacion en empresa</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -221,40 +223,45 @@
                                     <td bg-info>{{_user.contents['especialidad']}}hola</td>
                                     <td>{{_user.contents['cargo']}}hola</td>
                                     <td>{{_user.contents['fechaIni']['fechaFin']}}hola</td>
-                                    <td><a href="{{_user.contents['EmpresaUrl']}}"
-                                            target="_blank">{{_user.contents['EmpresaUrl']}}hola
-                                        </a></td>
-                                    <td>
-                                        <button *ngIf="_user.isLogged" type="button"
-                                            class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button *ngIf="_user.isLogged" type="button"
-                                            class="btn btn-outline-danger rounded-circle deleteBut"><i
-                                                class="fa fa-trash " aria-hidden="true"></i></button>
-                                    </td>
+                                    <td><a href="{{_user.contents['EmpresaUrl']}}"target="_blank">{{_user.contents['EmpresaUrl']}}hola</a></td>
+                                    <td ><button type="button" class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                                    <td><button type="button" class="btn btn-outline-danger rounded-circle deleteBut"><i class="fa fa-trash " aria-hidden="true"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>
                         <div>
                             <hr>
-                            <div class="input-group mb-3 col-md-10 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">insert url reel/portfolio</span>
-                                </div>
-                                <input type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3"
-                                    placeholder="https://example.com/users/">
-                                <button class="btn btn-primary" type="submit" value="Submit">Send</button>
-                            </div>
                             <div >
-                                <button routerLink="/proyectCreate" type="button" class="btn btn-outline-success btn-lg btn-block">Crear Proyecto</button>
+                                <div class="input-group mb-3 col-md-10 ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3">insert url
+                                            reel/portfolio</span>
+                                    </div>
+                                    <input type="url" class="form-control" id="basic-url"
+                                        aria-describedby="basic-addon3" placeholder="https://example.com/users/">
+                                    <button class="btn btn-primary" type="submit" value="Submit">Send</button>
+                                </div>
+                                <div>
+                                    <button routerLink="/proyectCreate" type="button"
+                                        class="btn btn-outline-success btn-lg btn-block">Crear Proyecto</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 titleRow ">
+            <div class="titleProyect rounded-right border-left-0">
+                <h1 class="textCreateProyect">PROYECTOS</h1>
+            </div>
+        </div>
+        <div class="col-md-10 offset-md-1 titleRow ">
+            <div class="titleProyect rounded-right rounded">
+                <h1 class="textCreateProyect">{{_data.dataProyect['nombre']}}</h1>
+            </div>
         </div>
     </div>
 </div>

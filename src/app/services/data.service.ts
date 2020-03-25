@@ -14,13 +14,13 @@ export class DataService {
 
 
 
-  // experienceId:string = "";
-  // expContents:object = {}; 
+  ;
 
   dataProyect: object = {};
-  proyectId: string = "";
-  proyectContent: object = {};
-  dataArchive = [];
+  proyectContents: object = {};
+  dataArchive = {};
+  proyects = [];
+  proyectId:string = "";
 
   createProyect() {
 
@@ -29,53 +29,36 @@ export class DataService {
 
     this._http.post(this.url + "/newProyect", this.dataProyect)
       .subscribe((response) => {
-        console.log(response)
-        this.proyectId = response['_id'];
+       
         this.dataProyect = response;
+        this.proyectId = response['id'];
+        console.log(this.proyectId)
+        this._router.navigateByUrl("/proyectDetail/"+this.proyectId)
       })
   };
 
-  uploadArchives(){
-    this._http.post(this.url + "/newProyect", this.dataArchive)
+  uploadArchives() {
+    this._http.post(this.url + "/", this.dataArchive)
       .subscribe((response) => {
         console.log(response)
-        this.proyectId = response['_id'];
-        this.dataProyect = response;
+        this.dataArchive = response;
       })
   }
 
-  
+
   allProyects() {
     this._http.get(this.url + "/proyects")
       .subscribe((response) => {
-        console.log(response);
+        this.proyects = [response]
       })
   };
 
-  ProyectContent() {
-    this._http.get(this.url + "/proyect/" + this.url)
+  ProyectContent(proyectId) {
+    this._http.get(this.url + "/proyect/" + proyectId)
       .subscribe((response) => {
-        this.proyectContent = response;
+        this.proyectContents = response;
         console.log(response);
       })
   };
-
-
-
-  // addExperience(){
-  //   this._http.post(this.url+"/newExperience/",this.data)
-  //     .subscribe((response)=>{
-  //       console.log(response)
-  //       this.experienceId = response['_id'];
-  //       this.data = response;
-  //     })
-  // }
-
-  // experinceContent(){
-  //   this._http.get(this.url+"/newExperience/"+this.experienceId)
-  //   .subscribe((response)=>{
-  //     this.expContents = response;
-  //   })
-  // }  
 
 }

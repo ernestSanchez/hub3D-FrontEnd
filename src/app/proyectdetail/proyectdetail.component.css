@@ -1,0 +1,38 @@
+.titleProyect{
+    background-image: linear-gradient(to top, rgba(6, 19, 27, 0.335), rgba(21, 162, 180, 0.678));
+    
+    padding-left: inherit;
+    text-align: center;
+    padding: 4px;
+}
+.descriptionProyect{
+    background-image: linear-gradient(to top, rgba(77, 109, 129, 0.287), rgba(152, 222, 231, 0.322));
+}
+.textCreateProyect{
+    color: lightblue;;
+}
+.teextUser{
+    color:white
+}
+.titleRow{
+    padding-top: 36px;
+    padding-left: inherit;
+}
+
+.userDetail{
+    width: 12vw;
+
+}
+.imageCard{
+    margin-left: 113px;
+}
+.requireBtn{
+    background-image: linear-gradient(to right, darkslateblue , rgba(34, 34, 189, 0.514));
+    border-color: darkslateblue;
+}
+.textProyect{
+    text-align: center;
+}
+.bgCard {
+    background-image: linear-gradient(to top, rgba(6, 19, 27, 0.568), rgba(12, 128, 143, 0.918));
+}

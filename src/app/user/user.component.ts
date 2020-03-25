@@ -62,5 +62,6 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this._user.userContent();
     this.userProfile();
+    this._data.allProyects();
   }
 }

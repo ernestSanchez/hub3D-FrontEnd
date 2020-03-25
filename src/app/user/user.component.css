@@ -1,7 +1,18 @@
-.contentPerfil {
-margin-top: 32px;
-height: 200px;
+.textCreateProyect{
+    color: white;
 }
+.titleRow{
+    padding-top: 36px;
+    padding-left: inherit;
+}
+.titleProyect{
+    background-image: linear-gradient(to top, rgba(6, 19, 27, 0.335), rgba(21, 162, 180, 0.678));
+    
+    padding-left: inherit;
+    text-align: center;
+    padding: 4px;
+}
+
 .userPhoto{
     height: 179px;
     width: auto;

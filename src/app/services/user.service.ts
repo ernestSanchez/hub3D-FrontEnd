@@ -27,6 +27,9 @@ export class UserService {
 
   allUsersContents: object = {};
 
+  userMail = this.contents['email']
+  mailUser = `mailto:${this.userMail}`;
+
 
   login(formData) {
     this._http.post(this.url + "/login", formData)
@@ -70,6 +73,9 @@ export class UserService {
       })
   }
 
-
+  ngOnInit(): void {
+   
+   
+  }
 
 }

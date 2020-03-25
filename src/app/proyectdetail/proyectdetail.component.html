@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 titleRow ">
+            <div class="titleProyect rounded-right border-left-0">
+                <h1 class="textCreateProyect">Detalle proyecto</h1>
+            </div>
+        </div>
+    </div>
+    <form name="proyectDetail" (ngSubmit)="proyectDetail.form.valid" #proyectDetail="ngForm">
+
+        <div class="row ">
+            <div class="col-sm-1 col-md-1 mt-5">
+                <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+                    alt="user" class="userDetail rounded-circle shadow p-3 mb-5 bg-white">
+            </div>
+            <div class="bgCard  col-md-4  offset-md-1 mt-5 rounded">
+                <div class="textProyect">
+                    <h6 class="font-weight-bolder textCreateProyect">Proyecto:</h6>
+                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['nombre']}}</h6>
+                    <h6 class="font-weight-bolder textCreateProyect">Categoria:</h6>
+                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['categoria']}}</h6>
+                    <h6 class="font-weight-bolder textCreateProyect">Necesito/Requiero:</h6>
+                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['requierimiento']}}</h6>
+                    <h6 class="font-weight-bolder textCreateProyect">Tipo:</h6>
+                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['tipo']}}</h6>
+                    <h6 class="font-weight-bolder textCreateProyect">Descripcion proyecto y necesidad:</h6>
+                </div>
+                <div class="card mt-3 descriptionProyect rounded">
+                    <h6 class="font-weight-normal ">{{_data.proyectContents['descripcion']}}</h6>
+                </div>
+                <div class="mt-3" style="text-align: center;">
+                    <button type="button" class="btn btn-lg btn-primary requireBtn" disabled><a href={{_user.mailUser}}
+                            target="_top" class="textCreateProyect">Solicitar colaboracion</a></button>
+                </div>
+                <br>
+            </div>
+            <div class="row">
+            <div class="card imageCard col-sm-3 col-md-5  mt-5">
+                <p>IMAGE PROYECT</p>
+                <p>IMAGE PROYECT</p>
+               
+            </div>
+            <div class="card imageCard col-sm-3 col-md-5  mt-5">
+                <p>IMAGE PROYECT</p>
+                <p>IMAGE PROYECT</p>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4 titleRow ">
+                <div class="titleProyect rounded-right border-left-0">
+                    <h1 class="textCreateProyect">Colaboraciones</h1>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <p>COLABORACION</p>
+            <p> work!</p>
+            <p> work!</p>
+        </div>
+        <br>
+      
+    </form>
+</div>

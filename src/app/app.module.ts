@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './services/user.service';
 import { ProyectcreateComponent } from './proyectcreate/proyectcreate.component';
+import { ProyectdetailComponent } from './proyectdetail/proyectdetail.component';
+import { ProyectsComponent } from './proyects/proyects.component';
 
 
 const RouterConfig : Routes = [
@@ -23,6 +25,8 @@ const RouterConfig : Routes = [
 {"path":"register","component":RegisterComponent },
 {"path":"user","component":UserComponent},
 {"path":"proyectCreate","component":ProyectcreateComponent},
+{"path":"proyectDetail/:id","component":ProyectdetailComponent},
+{"path":"proyects","component":ProyectsComponent},
 ]
 
 
@@ -36,6 +40,8 @@ const RouterConfig : Routes = [
     RegisterComponent,
     UserComponent,
     ProyectcreateComponent,
+    ProyectdetailComponent,
+    ProyectsComponent,
 
   ],
   imports: [
