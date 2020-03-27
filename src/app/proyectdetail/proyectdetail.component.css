@@ -20,8 +20,13 @@
 }
 
 .userDetail{
-    width: 12vw;
-
+    width: 11vw;
+    margin-left: 2px;
+    margin-top: -6px;
+}
+.userBtn{
+    height: 14vw;
+    width: 14vw;
 }
 .imageCard{
     margin-left: 113px;

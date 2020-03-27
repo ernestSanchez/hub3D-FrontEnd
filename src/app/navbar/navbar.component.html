@@ -7,23 +7,34 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-           <li class="nav-item active">
-            <img class="logo" src="/assets/images/logoPlanoBlanco.png">
-           </li>
-            <li class="nav-item active ">
-               <a class="nav-link" href="#">Hub3D <span class="sr-only">(current)</span></a>
+            <li class="nav-item active">
+                <img class="logo" src="/assets/images/logoPlanoBlanco.png">
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Top proyects</a>
+            <li class="nav-item active ">
+                <a class="nav-link" href="#">Hub3D <span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+                <div class="dropdown nav-link">
+                    <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Proyects
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">Top proyects</button>
+                        <button class="dropdown-item" routerLink="/proyects" type="button">All proyects</button>
+
+                    </div>
+                </div>
             </li>
             <li *ngIf="!_user.isLogged" class="nav-item active">
                 <a class="nav-link  textNavbar" href="#" routerLink="/login">Sign in</a>
             </li>
-            <li *ngIf="_user.isLogged"  class="nav-item">
-                <a class="nav-link" href="#" type="submit" (click)="logOut()"  routerLink="/home">Sign out</a>
+    
+            <li *ngIf="_user.isLogged" class="nav-item">
+                <a class="nav-link" href="#" type="submit" (click)="logOut()" routerLink="/home">Sign out</a>
             </li>
             <li *ngIf="_user.isLogged" class="nav-item">
-                <a class="nav-link" href="#"  routerLink="/user">User
+                <a class="nav-link"  href="#" routerLink="/user/{{_user.loggedId}}">User
                     <i class="fa fa-user-circle-o fa-5" aria-hidden="true" style="color: white;"></i>
                 </a>
             </li>

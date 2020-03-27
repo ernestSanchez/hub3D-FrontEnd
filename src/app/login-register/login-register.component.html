@@ -24,8 +24,8 @@
                     <input class="form-control mb-1" placeholder="Password" type="password" required name="password"
                         #inputPassword="ngModel" [(ngModel)]="formData['password']">
 
-                    <p *ngIf="inputPassword.invalid && inputPassword.dirty">el formato de la contraseña no es valido</p>
-                    <p *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
+                    <p style=" color: red;" *ngIf="inputPassword.invalid && inputPassword.dirty">el formato de la contraseña no es valido</p>
+                    <p style=" color: red;" *ngIf="inputPassword.invalid && inputPassword.touched  && inputPassword.pristine">Campo es
                         obligatorio</p>
                     <br>
                     <button class="btn btn-success btn-lg btn-block mb-3" type="submit">SIGN IN</button>

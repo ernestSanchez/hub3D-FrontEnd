@@ -1,5 +1,73 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-    <p>proyects works!</p>
-    
+    <div class="row">
+        <div class="col-sm-4 col-md-4 titleRow ">
+            <div class="titleProyect rounded-right border-left-0 bgCard">
+                <h1 class="textCreateProyect ">Proyectos</h1>
+            </div>
+        </div>
+        <div class="filters col-sm-4 col-md-4 rounded ">
+            <h5 class="textFilter">Filters</h5>
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="dropdown  ">
+                            <button class="btn btn-outline-success btn-sm dropdown-toggle " type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Tipo
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <h6 class="dropdown-header">Que buscas?</h6>
+                                <a class="dropdown-item" (click)="filterProyects('prop')">Prop</a>
+                                <a class="dropdown-item" (click)="filterProyects('character')">Character</a>
+                                <a class="dropdown-item" (click)="filterProyects('bg-set')">bg-set</a>
+                                <a class="dropdown-item" (click)="filterProyects('concept-personaje')">concept-personaje</a>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="dropdown  ">
+                            <button class="btn btn-outline-success btn-sm dropdown-toggle " type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Categoria
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <h6 class="dropdown-header">Que buscas?</h6>
+                                <a class="dropdown-item" (click)="filterProyects('rig')">rig</a>
+                                <a class="dropdown-item" (click)="filterProyects('model')">model</a>
+                                <a class="dropdown-item" (click)="filterProyects('animacion')">animacion</a>
+                                <a class="dropdown-item" (click)="filterProyects('concept')">concept</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 mt-5">
+        <div *ngFor="let proyect of _data.proyectsCount; let i = index">
+            <div class="col mb-4">
+                <div class="bgCard rounded">
+                    <img src="https://ih1.redbubble.net/image.430476727.0382/flat,128x128,075,t.u4.jpg"
+                        class="card-img-top img-thumbnail proyectImg " alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title teextUser">{{proyect['nombre']}}</h5>
+                        <h6 class="card-text teextUser">{{proyect['categoria']}}</h6>
+                        <h6 class="card-text teextUser">{{proyect['tipo']}}</h6>
+                        <h6 class="card-text teextUser">Visitas:</h6>
+                        <hr>
+                        <div class="moreArticle">
+                            <a class="btn btn-primary" type="button"   routerLink="/proyectDetail/{{proyect['_id']}}">View
+                                proyect <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

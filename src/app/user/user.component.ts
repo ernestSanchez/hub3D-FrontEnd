@@ -9,7 +9,13 @@ import { DataService } from '../services/data.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public _user: UserService, public _data: DataService) { }
+  constructor(public _user: UserService, public _data: DataService) {
+    
+
+  }
+
+
+
 
 
 
@@ -18,20 +24,23 @@ export class UserComponent implements OnInit {
     this._user.isLogged = false
   }
 
-  userProfile() {
 
-    if (this._user.contents['name'] !== this._user.contents['name'][""]) {
-      this._user.infoUserName = true;
-    } else if (this._user.contents['habilidad'] !== this._user.contents['habilidad'][""]) {
-      this._user.infoUserHablidad = true;
-    } else if (this._user.contents['status'] !== this._user.contents['status'][""]) {
-      this._user.infoUserSatus = true;
-    } else if (this._user.contents['workStatus'] !== this._user.contents['workStatus'][""]) {
-      this._user.infoUserWorkStatus = true;
-    } else if (this._user.contents['location'] !== this._user.contents['location'][""]) {
-      this._user.infoUserLocation = true;
-    }
-  }
+
+  //funcion para esconder informacion y opciones si no estas logeado//
+  // userProfile() {
+
+  //   if (this._user.contents['name'] !== this._user.contents['name'][""]) {
+  //     this._user.infoUserName = true;
+  //   } else if (this._user.contents['habilidad'] !== this._user.contents['habilidad'][""]) {
+  //     this._user.infoUserHablidad = true;
+  //   } else if (this._user.contents['status'] !== this._user.contents['status'][""]) {
+  //     this._user.infoUserSatus = true;
+  //   } else if (this._user.contents['workStatus'] !== this._user.contents['workStatus'][""]) {
+  //     this._user.infoUserWorkStatus = true;
+  //   } else if (this._user.contents['location'] !== this._user.contents['location'][""]) {
+  //     this._user.infoUserLocation = true;
+  //   }
+  // }
 
   submitModify() {
 
@@ -53,15 +62,14 @@ export class UserComponent implements OnInit {
 
   }
 
-  // submitExperience(){
-  //   this._data.addExperience()
-  // }
+
 
 
 
   ngOnInit(): void {
+    this._data.filterUserProyects(this._user.loggedId);
     this._user.userContent();
-    this.userProfile();
-    this._data.allProyects();
+    // this.userProfile();
+
   }
 }

@@ -11,6 +11,8 @@ export class UserService {
 
   constructor(public _http: HttpClient, public _router: Router ) { }
 
+  //variables para ocultar elementos si no estas logeado
+
   isLogged: boolean = false;
   isRegister: boolean = true;
   infoUserName: boolean = false;
@@ -19,18 +21,26 @@ export class UserService {
   infoUserWorkStatus: boolean = false;
   infoUserLocation: boolean = false;
 
+//variable para abreviar direccion de la api
+
   url: string = "http://localhost:3000"
 
+//var id de usuario logeado
   loggedId: string = "";
 
+ //var contenido de usuario logeado 
   contents: object = {};
 
+  //var todos los usuarios en la api
   allUsersContents: object = {};
 
+  // var para poner el mail de usuario en el boton de contact
   userMail = this.contents['email']
   mailUser = `mailto:${this.userMail}`;
 
 
+
+//llamada login y autentificacion de datos comparacion envio de cookies
   login(formData) {
     this._http.post(this.url + "/login", formData)
       .subscribe((response) => {
@@ -44,13 +54,15 @@ export class UserService {
           this.infoUserWorkStatus = true;
           this.infoUserLocation = true;
           console.log(this.loggedId);
-          document["cookie"] = `megazord=${response["token"]};path=/`;
+          // document["cookie"] = `megazord=${response["token"]};path=/`;
+          
+
           this._router.navigateByUrl("/home")
 
         }
       })
   }
-
+//llamada a todos los usuarios
   allUsersContent() {
     this._http.get(this.url + "/users")
       .subscribe((response) => {
@@ -58,6 +70,7 @@ export class UserService {
       })
   }
 
+//llamada a contenido de usuario por id
   userContent() {
     this._http.get(this.url + "/user/" + this.loggedId)
       .subscribe((response) => {
@@ -65,11 +78,15 @@ export class UserService {
         console.log(this.contents)
       })
   }
-  userModification(newUserModify: object) {
-    const headers = new HttpHeaders({ token: document["cookie"] });
-    this._http.put(this.url + "/modifyUser", newUserModify, { headers })
-      .subscribe((response) => {
 
+  //llamada de modificacion de usuario logeado
+  userModification(newUserModify: object) {
+    const headers = new HttpHeaders({ "Set-Cookie": document["cookie"] });
+    // let options = { withCredentials: true };
+
+    this._http.put(this.url + "/modifyUser", newUserModify,  {headers} )
+      .subscribe((response) => {
+          console.log(response)
       })
   }
 

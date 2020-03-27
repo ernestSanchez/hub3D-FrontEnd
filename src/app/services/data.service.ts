@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router, Routes } from '@angular/router';
+import { Router, Routes ,ActivatedRoute } from '@angular/router';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -10,18 +10,21 @@ export class DataService {
 
   constructor(public _http: HttpClient, public _router: Router, public _user: UserService) { }
 
-  url: string = "http://localhost:3000";
-
-
-
-  ;
-
+//variable para las llamadas a la Api
+  
+url: string = "http://localhost:3000";
+ 
+//variables con los contendos de los proyectos
   dataProyect: object = {};
   proyectContents: object = {};
   dataArchive = {};
-  proyects = [];
+  proyectsCount:object = [];
+  userProyects:object = [];
   proyectId:string = "";
 
+//llamadas proyecto//
+
+  //llamada creacion proyecto le añado el id del user para luego relacionarlo//
   createProyect() {
 
     const idUser = this._user.loggedId;
@@ -37,6 +40,7 @@ export class DataService {
       })
   };
 
+  //llamada para subida de archivos en cada proyecto
   uploadArchives() {
     this._http.post(this.url + "/", this.dataArchive)
       .subscribe((response) => {
@@ -45,13 +49,41 @@ export class DataService {
       })
   }
 
-
+//llamada a todos los proyectos//
   allProyects() {
     this._http.get(this.url + "/proyects")
       .subscribe((response) => {
-        this.proyects = [response]
+        console.log(response)
+        this.proyectsCount = response;
       })
   };
+//para filtrar busqueda de proyectos por tipos //
+
+  filterProyects(filter:object) {
+    this._http.post(this.url + "/proyects", filter)
+      .subscribe((response) => {
+        console.log(response)
+        this.proyectsCount = response;
+      })
+  }
+
+//para filtrar busqueda de proyectos por usuario //
+  filterProyectsUser(user:object) {
+    this._http.post(this.url + "/proyects", user)
+      .subscribe((response) => {
+        this.userProyects = response;
+      })
+  }
+
+  filterUserProyects(user: string) {
+    // user = this._user.loggedId
+   
+      this.filterProyectsUser({ "user_id": user })
+   
+  }
+
+
+  //llamada proyecto por su id (id añadido en proyectdetail.ts /constructor)//
 
   ProyectContent(proyectId) {
     this._http.get(this.url + "/proyect/" + proyectId)
@@ -60,5 +92,17 @@ export class DataService {
         console.log(response);
       })
   };
+
+  //llamada eliminar proyecto
+
+  deleteProyect() {
+    this._http.delete(this.url + "/deleteProyect/" )
+      .subscribe((response) => {
+        this.proyectContents = response;
+        console.log(response);
+      })
+  };
+
+
 
 }

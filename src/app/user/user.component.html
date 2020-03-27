@@ -11,8 +11,9 @@
                         alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
 
                     <div class="col-10 col-md-1 offset-md-1 userButtons">
-                        <button type="button" class="btn btn-primary mb-2 btn-sm" disabled><a href={{_user.mailUser}}
-                                target="_top" class="textCreateProyect">Contact/User</a></button>
+                        <a role="button" href="{{_user.mailUser}}"
+                            class="btn btn-primary mb-2 btn-sm textBody">
+                            Contact/User</a>
                         <br>
                         <button type="button" class="btn btn-primary btn-sm">Demo/Reel</button>
 
@@ -85,8 +86,8 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="employment situation">Employment situation</label>
-                                            <select class="form-control situation" id="employment situation"
+                                            <label for="employment">Employment situation</label>
+                                            <select class="form-control situation" id="employment"
                                                 [(ngModel)]="_user.contents['situation']"
                                                 [ngModelOptions]="{standalone:true}">
                                                 <option value="working">working</option>
@@ -98,7 +99,7 @@
                                                 <div class="form-group">
                                                     <label for="recipient-City" class="col-form-label">City</label>
                                                     <input type="text" class="form-control" id="recipient-City"
-                                                        [(ngModel)]="_user.contents['location'][0]"
+                                                        [(ngModel)]="_user.contents['location']"
                                                         [ngModelOptions]="{standalone:true}">
                                                 </div>
                                             </div>
@@ -107,7 +108,7 @@
                                                     <label for="recipient-Country"
                                                         class="col-form-label">Country</label>
                                                     <input type="text" class="form-control " id="recipient-Country"
-                                                        [(ngModel)]="_user.contents['location'][1]"
+                                                        [(ngModel)]="_user.contents['location']"
                                                         [ngModelOptions]="{standalone:true}">
                                                 </div>
                                             </div>
@@ -127,7 +128,7 @@
 
             <div class="card-body rounded-lg ">
                 <div class="row">
-                    <div class="col-md-11 offset-md-1 ">
+                    <div class="col-md-11 ">
                         <div class="row">
                             <div class="col-sm">
                                 <h6>Experience</h6>
@@ -199,7 +200,7 @@
                                                     class="btn btn-primary">Create new
                                                     experience</button>
                                             </div>
-                                       
+
                                         </div>
                                     </div>
                                 </div>
@@ -219,30 +220,33 @@
                             <tbody>
 
                                 <tr>
-                                    <td scope="row">{{_user.contents['empresa']}}hola</td>
-                                    <td bg-info>{{_user.contents['especialidad']}}hola</td>
-                                    <td>{{_user.contents['cargo']}}hola</td>
-                                    <td>{{_user.contents['fechaIni']['fechaFin']}}hola</td>
-                                    <td><a href="{{_user.contents['EmpresaUrl']}}"target="_blank">{{_user.contents['EmpresaUrl']}}hola</a></td>
-                                    <td ><button type="button" class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
-                                    <td><button type="button" class="btn btn-outline-danger rounded-circle deleteBut"><i class="fa fa-trash " aria-hidden="true"></i></button></td>
+                                    <td scope="row">{{_user.contents['empresa']}}locoFilms</td>
+                                    <td bg-info>{{_user.contents['especialidad']}}animador</td>
+                                    <td>{{_user.contents['cargo']}}lead</td>
+                                    <td>22/03/2018 10/05/2020</td>
+                                    <td><a href="{{_user.contents['EmpresaUrl']}}"
+                                            target="_blank">{{_user.contents['EmpresaUrl']}}https://www.youtube.com/watch?v=cfRz-2wqaOA</a></td>
+                                    <td><button type="button" class="btn btn-outline-primary rounded-circle"><i
+                                                class="fa fa-pencil" aria-hidden="true"></i></button></td>
+                                    <td><button type="button" class="btn btn-outline-danger rounded-circle deleteBut"><i
+                                                class="fa fa-trash " aria-hidden="true"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>
                         <div>
                             <hr>
-                            <div >
+                            <div *ngIf="_user.isLogged">
                                 <div class="input-group mb-3 col-md-10 ">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon3">insert url
                                             reel/portfolio</span>
                                     </div>
-                                    <input type="url" class="form-control" id="basic-url"
+                                    <input  type="url" class="form-control" id="basic-url"
                                         aria-describedby="basic-addon3" placeholder="https://example.com/users/">
                                     <button class="btn btn-primary" type="submit" value="Submit">Send</button>
                                 </div>
                                 <div>
-                                    <button routerLink="/proyectCreate" type="button"
+                                    <button  routerLink="/proyectCreate" type="button"
                                         class="btn btn-outline-success btn-lg btn-block">Crear Proyecto</button>
                                 </div>
                             </div>
@@ -258,9 +262,52 @@
                 <h1 class="textCreateProyect">PROYECTOS</h1>
             </div>
         </div>
-        <div class="col-md-10 offset-md-1 titleRow ">
+        <div *ngFor="let proyect of _data.userProyects; let i = index" class="col-md-10 offset-md-1 titleRow ">
             <div class="titleProyect rounded-right rounded">
-                <h1 class="textCreateProyect">{{_data.dataProyect['nombre']}}</h1>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr class="table-info">
+                            <th scope="col">
+                                <h5>Tipo</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5>Ctegoria</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5>Requiere</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5>Visitas</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5>Colaboraciones</h5>
+                            </th>
+                            <th scope="col "></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{proyect['tipo']}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{proyect['categoria']}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{proyect['requierimiento']}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{proyect['visitas']}}</h5>
+                            </td>
+                            <td>
+                                <div class="row"></div>
+                                <button type="button" routerLink="/proyectDetail/{{proyect['_id']}}" class="btn btn-success  col-md-5 ">Ver</button>
+                                <button type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

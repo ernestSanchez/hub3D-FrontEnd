@@ -1,5 +1,5 @@
 .textCreateProyect{
-    color: white;
+    color:lightblue;
 }
 .titleRow{
     padding-top: 36px;
@@ -49,5 +49,8 @@
 .welcomeText {
     text-align: center;
     margin-top: 48px;
+    color: white;
+}
+.textBody{
     color: white;
 }

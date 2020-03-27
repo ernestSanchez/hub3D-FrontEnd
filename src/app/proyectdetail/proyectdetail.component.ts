@@ -11,6 +11,7 @@ import { Router, Routes, ActivatedRoute } from '@angular/router';
 export class ProyectdetailComponent implements OnInit {
 
   constructor(public _data:DataService, public _user:UserService ,public _route: ActivatedRoute,public _router: Router) {
+    //para dar el valor del id de proyecto//
     this._route.paramMap.subscribe(params => {
       let idProyect = params['params']['id'];
       console.log(params);
@@ -20,8 +21,14 @@ export class ProyectdetailComponent implements OnInit {
     });
    }
 
-
- 
+   //funcion para ver el usuario del proyecto seleccionado
+   userProyect(){
+    if (this._user.isLogged ==  false){
+       this._user.loggedId = this._data.proyectContents['user_id']
+       console.log(this._user.loggedId)
+       this._router.navigateByUrl("/user/"+this._user.loggedId)
+    }
+  }
 
 
 
