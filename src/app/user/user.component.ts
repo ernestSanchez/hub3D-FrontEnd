@@ -54,19 +54,23 @@ export class UserComponent implements OnInit {
       "habilidad": this._user.contents['habilidad'],
       "status": this._user.contents['status'],
       "workStatus": this._user.contents['workStatus'],
-      "location": this._user.contents['location']
-
+      "location": this._user.contents['location'],
+      "urlReel":this._user.contents['urlReel'],
+      "urlImageUser": this._user.contents['urlImageUser']
     }
 
     this._user.userModification(newUserModify);
 
   }
 
-
-
+  // addPhotoUser(data){
+  //   this._user.imageUser(data);
+    
+  // }
 
 
   ngOnInit(): void {
+    //  this._data.userColaborations(this._user.loggedId);
     this._data.filterUserProyects(this._user.loggedId);
     this._user.userContent();
     // this.userProfile();

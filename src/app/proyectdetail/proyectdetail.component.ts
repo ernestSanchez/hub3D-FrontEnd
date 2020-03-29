@@ -30,11 +30,20 @@ export class ProyectdetailComponent implements OnInit {
     }
   }
 
+  //crear colaboracion//
+  submitNewColaboration(){
+    this._data.createColaboration();
+  }
+
+  // userColaboration(user){
+  //   let  id = user
+  //   this._data.userColaborations(id)
+  // }
 
 
   ngOnInit(): void {
-    
-    
+    this._data.allColaborations();
+    this._data.allProyects();
   }
   
 

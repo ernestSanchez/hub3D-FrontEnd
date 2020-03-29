@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
+    <!-- titulo pag -->
     <div class="row">
         <div class="col-sm-4 col-md-4 titleRow ">
             <div class="titleProyect rounded-right border-left-0 bgCard">
@@ -8,7 +9,7 @@
         </div>
         <div class="filters col-sm-4 col-md-4 rounded ">
             <h5 class="textFilter">Filters</h5>
-
+            <!-- filtrado de proyectos -->
             <table>
                 <tr>
                     <td>
@@ -49,6 +50,7 @@
             </table>
         </div>
     </div>
+    <!-- lista de proyectos -->
     <div class="row row-cols-1 row-cols-md-4 mt-5">
         <div *ngFor="let proyect of _data.proyectsCount; let i = index">
             <div class="col mb-4">
@@ -59,10 +61,10 @@
                         <h5 class="card-title teextUser">{{proyect['nombre']}}</h5>
                         <h6 class="card-text teextUser">{{proyect['categoria']}}</h6>
                         <h6 class="card-text teextUser">{{proyect['tipo']}}</h6>
-                        <h6 class="card-text teextUser">Visitas:</h6>
+                        <h6 class="card-text teextUser">Visitas:{{proyect['visitas']}}</h6>
                         <hr>
                         <div class="moreArticle">
-                            <a class="btn btn-primary" type="button"   routerLink="/proyectDetail/{{proyect['_id']}}">View
+                            <a class="btn btn-primary" type="submit" (click)="addItem()"  routerLink="/proyectDetail/{{proyect['_id']}}">View
                                 proyect <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>

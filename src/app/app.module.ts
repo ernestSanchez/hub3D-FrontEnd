@@ -27,7 +27,8 @@ const RouterConfig : Routes = [
 {"path":"user/:id","component":UserComponent},
 {"path":"proyectCreate","component":ProyectcreateComponent},
 {"path":"proyectDetail/:id","component":ProyectdetailComponent},
-{"path":"proyects","component":ProyectsComponent},
+{"path":"proyects","component":ProyectsComponent}
+
 ]
 
 

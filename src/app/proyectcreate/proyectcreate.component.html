@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
+    <!-- cabecera creacion proyecto -->
     <div class="row">
         <div class="col-sm-4 col-md-4 titleRow">
             <div class="titleProyect rounded-right border-left-0">
@@ -7,12 +8,13 @@
             </div>
         </div>
     </div>
-
+<!-- body creacion de proyecto -->
     <div class="row">
         <div class="col-md-10 offset-md-1  mt-5">
             <div class="intCard bgCard rounded">
                 <div class="container">
                     <div class=" col-md-1 offset-md-11">
+                        <!-- cilck cerrar creacipon proyecto y vuelta a perfil de usuario -->
                         <a routerLink="/user" class="fa fa-times fa-7" aria-hidden="true"></a>
                     </div>
                     <h1 class=" mt-3 textCreateProyect">Nuevo Proyecto</h1>
@@ -30,7 +32,7 @@
                             <label for="categoriaProyect" class="textCreateProyect">Categoria</label>
                             <select class="form-control categoriaProyect" id="categoriaProyect"
                                 [(ngModel)]="_data.dataProyect['categoria']" [ngModelOptions]="{standalone:true}">
-                                <option>selecciona Categoria</option>
+                                <option value="">selecciona Categoria</option>
                                 <option value="rig">rig</option>
                                 <option value="model">model</option>
                                 <option value="animacion">animacion</option>
@@ -41,7 +43,7 @@
                             <label for="tipoProyecto" class="textCreateProyect">tipo de Proyecto</label>
                             <select class="form-control tipoProyecto" id="tipoProyecto"
                                 [(ngModel)]="_data.dataProyect['tipo']" [ngModelOptions]="{standalone:true}">
-                                <option>selecciona tipo</option>
+                                <option value="">selecciona tipo</option>
                                 <option value="character">character</option>
                                 <option value="prop">prop</option>
                                 <option value="bg-set">bg-set</option>

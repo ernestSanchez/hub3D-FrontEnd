@@ -7,16 +7,44 @@
         <div class="card form col-md-10 offset-md-1 shadow p-3 mb-5 bgCard">
             <div class="userPosition col-md-1 offset-md-1">
                 <div>
-                    <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
-                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
+               <!-- <img  src="{{_user.contents['urlImageUser']}}"
+                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">  -->
 
+                        <img  src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white"> 
                     <div class="col-10 col-md-1 offset-md-1 userButtons">
-                        <a role="button" href="{{_user.mailUser}}"
-                            class="btn btn-primary mb-2 btn-sm textBody">
+                        <!-- <button type="file" class="btn btn-primary btn-sm ">foto</button> -->
+                        
+
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#exampleModal">
+    foto
+  </button>
+   <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">IMAGEN PERFIL</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data"> 
+                <input name="myFile" type="file">
+                <button type="button" >Enviar</button>
+             </form>
+        </div>
+      </div>
+    </div>
+  </div>
+                        <!-- botones -->
+                        <a role="button" href="{{_user.mailUser}}" class="btn btn-primary mb-2 btn-sm textBody mt-2">
                             Contact/User</a>
                         <br>
-                        <button type="button" class="btn btn-primary btn-sm">Demo/Reel</button>
-
+                        <a  target="_blank" href="{{_user.contents['urlReel']}}"  role="button" class="btn btn-primary btn-sm">Demo/Reel</a>
+                       
                     </div>
                 </div>
             </div>
@@ -225,10 +253,13 @@
                                     <td>{{_user.contents['cargo']}}lead</td>
                                     <td>22/03/2018 10/05/2020</td>
                                     <td><a href="{{_user.contents['EmpresaUrl']}}"
-                                            target="_blank">{{_user.contents['EmpresaUrl']}}https://www.youtube.com/watch?v=cfRz-2wqaOA</a></td>
-                                    <td><button type="button" class="btn btn-outline-primary rounded-circle"><i
-                                                class="fa fa-pencil" aria-hidden="true"></i></button></td>
-                                    <td><button type="button" class="btn btn-outline-danger rounded-circle deleteBut"><i
+                                            target="_blank">{{_user.contents['EmpresaUrl']}}https://www.youtube.com/watch?v=cfRz-2wqaOA</a>
+                                    </td>
+                                    <td *ngIf="_user.isLogged"><button type="button"
+                                            class="btn btn-outline-primary rounded-circle"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></button></td>
+                                    <td *ngIf="_user.isLogged"><button type="button"
+                                            class="btn btn-outline-danger rounded-circle deleteBut"><i
                                                 class="fa fa-trash " aria-hidden="true"></i></button></td>
                                 </tr>
                             </tbody>
@@ -241,12 +272,14 @@
                                         <span class="input-group-text" id="basic-addon3">insert url
                                             reel/portfolio</span>
                                     </div>
-                                    <input  type="url" class="form-control" id="basic-url"
-                                        aria-describedby="basic-addon3" placeholder="https://example.com/users/">
-                                    <button class="btn btn-primary" type="submit" value="Submit">Send</button>
+                                    <input type="url" class="form-control" id="basic-url"
+                                        aria-describedby="basic-addon3" placeholder="https://example.com/users/"
+                                        [(ngModel)]="_user.contents['urlReel']" [ngModelOptions]="{standalone:true}">
+                                    
+                                        <button class="btn btn-primary" (click)="submitModify()" type="submit" value="Submit">Send</button>
                                 </div>
                                 <div>
-                                    <button  routerLink="/proyectCreate" type="button"
+                                    <button routerLink="/proyectCreate" type="button"
                                         class="btn btn-outline-success btn-lg btn-block">Crear Proyecto</button>
                                 </div>
                             </div>
@@ -256,31 +289,33 @@
             </div>
         </div>
     </div>
+    <!-- cabecera  proyectos usuario -->
     <div class="row">
         <div class="col-sm-6 col-md-4 titleRow ">
             <div class="titleProyect rounded-right border-left-0">
-                <h1 class="textCreateProyect">PROYECTOS</h1>
+                <h1 class="textCreateProyect">PROYECTOS: {{_user.contents['username']}}</h1>
             </div>
         </div>
+        <!-- proyectos usuario -->
         <div *ngFor="let proyect of _data.userProyects; let i = index" class="col-md-10 offset-md-1 titleRow ">
-            <div class="titleProyect rounded-right rounded">
+            <div class="proyectsUser rounded-right rounded">
                 <table class="table table-borderless">
                     <thead>
-                        <tr class="table-info">
+                        <tr class="table rounded tablehead">
                             <th scope="col">
-                                <h5>Tipo</h5>
+                                <h5 class="textCreateProyect">Tipo</h5>
                             </th>
                             <th scope="col ">
-                                <h5>Ctegoria</h5>
+                                <h5 class="textCreateProyect">Ctegoria</h5>
                             </th>
                             <th scope="col ">
-                                <h5>Requiere</h5>
+                                <h5 class="textCreateProyect">Requiere</h5>
                             </th>
                             <th scope="col ">
-                                <h5>Visitas</h5>
+                                <h5 class="textCreateProyect">Visitas</h5>
                             </th>
                             <th scope="col ">
-                                <h5>Colaboraciones</h5>
+                                <h5 class="textCreateProyect">Colaboraciones</h5>
                             </th>
                             <th scope="col "></th>
                         </tr>
@@ -302,7 +337,8 @@
                             </td>
                             <td>
                                 <div class="row"></div>
-                                <button type="button" routerLink="/proyectDetail/{{proyect['_id']}}" class="btn btn-success  col-md-5 ">Ver</button>
+                                <button type="button" routerLink="/proyectDetail/{{proyect['_id']}}"
+                                    class="btn btn-success  col-md-5 ">Ver</button>
                                 <button type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>

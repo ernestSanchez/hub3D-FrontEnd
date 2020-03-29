@@ -31,6 +31,8 @@ export class UserService {
  //var contenido de usuario logeado 
   contents: object = {};
 
+  photoUser:object ={};
+
   //var todos los usuarios en la api
   allUsersContents: object = {};
 
@@ -62,6 +64,17 @@ export class UserService {
         }
       })
   }
+
+
+  // imageUser(data){
+  //   this._http.post(this.url + "/upload",data)
+  //     .subscribe((response) => {
+  //            this.photoUser = response;
+  //      })
+  // }
+
+
+
 //llamada a todos los usuarios
   allUsersContent() {
     this._http.get(this.url + "/users")

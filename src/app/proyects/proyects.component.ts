@@ -42,6 +42,12 @@ export class ProyectsComponent implements OnInit {
   }
 
 
+  
+    
+
+    
+    
+    
 
   ngOnInit(): void {
     this._data.allProyects();

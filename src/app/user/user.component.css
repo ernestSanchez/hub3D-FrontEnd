@@ -54,3 +54,13 @@
 .textBody{
     color: white;
 }
+
+.proyectsUser{
+    
+   
+    background: radial-gradient( rgba(19, 152, 170, 0.493),transparent);
+}
+.tablehead{
+    background-image: linear-gradient(to top,transparent, rgba(6, 41, 46, 0.959));
+    
+}
