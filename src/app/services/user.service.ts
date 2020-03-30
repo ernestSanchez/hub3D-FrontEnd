@@ -56,7 +56,7 @@ export class UserService {
           this.infoUserWorkStatus = true;
           this.infoUserLocation = true;
           console.log(this.loggedId);
-          // document["cookie"] = `megazord=${response["token"]};path=/`;
+          document["cookie"] = `megazord=${response["token"]};path=/`;
           
 
           this._router.navigateByUrl("/home")

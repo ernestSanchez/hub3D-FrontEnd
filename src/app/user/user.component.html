@@ -12,8 +12,9 @@
 
                         <img  src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
                         alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white"> 
-                    <div class="col-10 col-md-1 offset-md-1 userButtons">
-                        <!-- <button type="file" class="btn btn-primary btn-sm ">foto</button> -->
+                   
+                        <div class="col-10 col-md-1 offset-md-1 userButtons">
+             
                         
 
                         <!-- Button trigger modal -->
@@ -303,19 +304,22 @@
                     <thead>
                         <tr class="table rounded tablehead">
                             <th scope="col">
+                                <h5 class="textCreateProyect">Username</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5 class="textCreateProyect">proyect</h5>
+                            </th>
+                            <th scope="col ">
                                 <h5 class="textCreateProyect">Tipo</h5>
                             </th>
                             <th scope="col ">
-                                <h5 class="textCreateProyect">Ctegoria</h5>
+                                <h5 class="textCreateProyect">Categoria</h5>
                             </th>
                             <th scope="col ">
                                 <h5 class="textCreateProyect">Requiere</h5>
                             </th>
                             <th scope="col ">
-                                <h5 class="textCreateProyect">Visitas</h5>
-                            </th>
-                            <th scope="col ">
-                                <h5 class="textCreateProyect">Colaboraciones</h5>
+                                <h5 class="textCreateProyect">Editar</h5>
                             </th>
                             <th scope="col "></th>
                         </tr>
@@ -323,6 +327,12 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{_user.contents['username']}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{proyect['nombre']}}</h5>
+                            </td>
                             <td>
                                 <h5 class="textBody font-weight-normal">{{proyect['tipo']}}</h5>
                             </td>
@@ -333,13 +343,11 @@
                                 <h5 class="textBody font-weight-normal">{{proyect['requierimiento']}}</h5>
                             </td>
                             <td>
-                                <h5 class="textBody font-weight-normal">{{proyect['visitas']}}</h5>
-                            </td>
-                            <td>
                                 <div class="row"></div>
                                 <button type="button" routerLink="/proyectDetail/{{proyect['_id']}}"
                                     class="btn btn-success  col-md-5 ">Ver</button>
-                                <button type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
+                                <button *ngIf="_user.isLogged"  (click)="removeProyect()" type="button" class="btn btn-danger offset-md-1 col-md-5"
+                                >Eliminar</button>
                             </td>
                         </tr>
                     </tbody>

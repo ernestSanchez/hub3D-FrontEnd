@@ -22,7 +22,7 @@ export class DataService {
   proyectsCount: object = [];
   userProyects: object = [];
   proyectId: string = "";
-
+  deleteIdProyect:string = "";
   ///// colaboraciones //////
   dataColaboracion: object = {};
   colaborationId: string = "";
@@ -46,7 +46,7 @@ export class DataService {
 
   //llamada para subida de archivos en cada proyecto
   uploadArchives() {
-    this._http.post(this.url + "/", this.dataArchive)
+    this._http.post(this.url + "/upload", this.dataArchive)
       .subscribe((response) => {
         console.log(response)
         this.dataArchive = response;
@@ -109,6 +109,9 @@ export class DataService {
       })
   };
 
+
+
+
   /////////////////// llamadas colaboraciones //////////////////
 
 
@@ -144,7 +147,7 @@ export class DataService {
   userContent(user) {
     this._http.get(this.url + "/user/" + user)
       .subscribe((response) => {
-        this.usersInColaboration = response;
+        // this.usersInColaboration = response;
         console.log(response)
       })
      }

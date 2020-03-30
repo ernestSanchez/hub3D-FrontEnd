@@ -17,7 +17,7 @@ export class ProyectdetailComponent implements OnInit {
       console.log(params);
       console.log(idProyect);
       this._data.ProyectContent(idProyect);
-    
+      this._data.deleteIdProyect = idProyect;
     });
    }
 
@@ -29,6 +29,10 @@ export class ProyectdetailComponent implements OnInit {
        this._router.navigateByUrl("/user/"+this._user.loggedId)
     }
   }
+
+
+
+
 
   //crear colaboracion//
   submitNewColaboration(){

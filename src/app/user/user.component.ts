@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { DataService } from '../services/data.service';
-
+import { Router, Routes, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public _user: UserService, public _data: DataService) {
+  constructor(public _user: UserService, public _data: DataService,public _route: ActivatedRoute) {
     
 
   }
@@ -67,6 +67,10 @@ export class UserComponent implements OnInit {
   //   this._user.imageUser(data);
     
   // }
+
+  removeProyect(){
+    this._data.deleteProyect(this._data.proyectId)
+  }
 
 
   ngOnInit(): void {
