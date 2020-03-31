@@ -75,7 +75,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
-                                        <button type="button" (click)="submitNewColaboration()"
+                                        <button *ngIf="_user.isLogged" type="button" (click)="submitNewColaboration()"
                                             class="btn btn-primary">Crear colaboracion</button>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                             <td>
                                 <div class="row"></div>
                                 <button type="button"  class="btn btn-success  col-md-5 ">User</button>
-                                <button type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
+                                <button *ngIf="_user.isLogged" type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
