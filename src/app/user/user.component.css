@@ -64,3 +64,29 @@
     background-image: linear-gradient(to top,transparent, rgba(6, 41, 46, 0.959));
     
 }
+.titleColaboration{
+    background-image: linear-gradient(to top,rgba(218, 28, 235, 0.37), rgba(21, 162, 180, 0.678));
+ 
+    padding-left: inherit;
+    text-align: center;
+    padding: 4px;
+}
+.colaborations{
+    background: radial-gradient(rgba(218, 28, 235, 0.514),transparent);
+}
+.colaborationsModal{
+    background: radial-gradient(rgba(218, 28, 235, 0.924),rgba(21, 161, 180, 0.733));
+}
+.teextUser{
+    color:white
+}
+.textBody{
+    color: lightblue;;
+}
+.colaborationsRow{
+    display: 0;
+}
+.titleRowColaborationsUser{
+    padding-top: 36px;
+    padding-left: inherit;
+}

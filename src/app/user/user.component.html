@@ -18,7 +18,7 @@
                         
 
                         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#exampleModal">
+<button *ngIf="_user.isLogged" type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#exampleModal">
     foto
   </button>
    <!-- Modal -->
@@ -348,6 +348,62 @@
                                     class="btn btn-success  col-md-5 ">Ver</button>
                                 <button *ngIf="_user.isLogged"  (click)="removeProyect()" type="button" class="btn btn-danger offset-md-1 col-md-5"
                                 >Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div >
+            <div>
+                <div class="titleColaboration rounded-right border-left-0">
+                    <h1 class="textCreateProyect ">Colaboraciones</h1>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-10 offset-md-1 titleRow ">
+            <div *ngFor="let colaboration of _data.colaborationsCount; let i = index" class="colaborations rounded-right rounded">
+                <table class="table table-borderless ">
+                    <thead>
+                        <tr class="table rounded tablehead">
+                            <th scope="col">
+                                <h5 class="teextUser">foto</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5 class="teextUser">Usuario</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5 class="teextUser">colaboracion</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5 class="teextUser">Activo/Desactivo</h5>
+                            </th>
+                            <th scope="col ">
+                                <h5 class="teextUser"></h5>
+                            </th>
+                            <th scope="col "></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5 class="textBody font-weight-normal"></h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal"></h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal">{{colaboration['categoria']}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="textBody font-weight-normal"></h5>
+                            </td>
+                            <td>
+                                <div class="row"></div>
+                                <button type="button"  class="btn btn-success  col-md-5 ">User</button>
+                                <button *ngIf="_user.isLogged" type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>

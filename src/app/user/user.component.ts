@@ -76,7 +76,9 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     //  this._data.userColaborations(this._user.loggedId);
     this._data.filterUserProyects(this._user.loggedId);
+    this._data.allColaborations();
     this._user.userContent();
+    this._data.allColaborations();
     // this.userProfile();
 
   }
