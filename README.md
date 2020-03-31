@@ -18,17 +18,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - grid:
   > It contains an explanation of the web app with screenshots and images of how to create a project or collaborate on a project.
 - navbar:
-> Navigation bar included in all components except with login.
+  > Navigation bar included in all components except with login.
   It includes sig in user, once registered or logged in you have access to your user and your modification options.
   logged in or not in navbar hat access all created projects.
   And of course no home link button
-- login-register:contains registered user access and the option to register
+- login-register:
+  > contains registered user access and the option to register and access to Home
 - register:
+  > Contains formula to create user and access to Home
 - user:
+  > Includes all the information of a user and access to user modifications,
+    creation of projects and view of projects and collaborate on it.
+    also navbar
 - proyectcreate:
+  > Contains project creation form
 - proyectdetail:
+  > It contains all the information of the project, its collaborations and access to the user who created it.
 - proyects:
-
+  > It contains the entire list of projects created by all users, plus filter search by type or category.
 
 ### services
 
