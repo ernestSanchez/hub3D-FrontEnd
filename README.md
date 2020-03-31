@@ -13,7 +13,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ### components
-
+- landing-Page:
+  > initial view of the web app. includes explanation of the function of the eb with images
+- grid:
+  > It contains an explanation of the web app with screenshots and images of how to create a project or collaborate on a project.
+- navbar:
+> Navigation bar included in all components except with login.
+  It includes sig in user, once registered or logged in you have access to your user and your modification options.
+  logged in or not in navbar hat access all created projects.
+  And of course no home link button
+- login-register:contains registered user access and the option to register
+- register:
+- user:
+- proyectcreate:
+- proyectdetail:
+- proyects:
 
 
 ### services
