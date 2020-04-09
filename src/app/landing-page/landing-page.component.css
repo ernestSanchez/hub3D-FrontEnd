@@ -1,11 +1,12 @@
 .viewerProyects {
  margin: 0;
  text-align: center;
+ margin-top: -88px;
 }
-hr {
-    margin-top: 0;
-    height: 10px;
-    border: 0;
-    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+
+.bgJumbotron {
+    background: 0;
+
+   
 }
 

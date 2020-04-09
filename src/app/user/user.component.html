@@ -7,45 +7,56 @@
         <div class="card form col-md-10 offset-md-1 shadow p-3 mb-5 bgCard">
             <div class="userPosition col-md-1 offset-md-1">
                 <div>
-               <!-- <img  src="{{_user.contents['urlImageUser']}}"
-                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">  -->
+                    <div>
+                    <img  *ngIf="_user.imgUser" src="{{_user.contents['urlImageUser']}}"
+                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">  
 
-                        <img  src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
-                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white"> 
-                   
-                        <div class="col-10 col-md-1 offset-md-1 userButtons">
-             
-                        
+                    <img *ngIf="!_user.imgUser" src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
+                    </div>
+                    <div class="col-10 col-md-1 offset-md-1 userButtons">
+
+
 
                         <!-- Button trigger modal -->
-<button *ngIf="_user.isLogged" type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#exampleModal">
-    foto
-  </button>
-   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">IMAGEN PERFIL</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data"> 
-                <input name="myFile" type="file">
-                <button type="button" >Enviar</button>
-             </form>
-        </div>
-      </div>
-    </div>
-  </div>
+                        <button *ngIf="_user.isLogged" type="button" class="btn btn-primary btn-sm " data-toggle="modal"
+                            data-target="#exampleModal">
+                            foto
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">IMAGEN PERFIL</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="http://localhost:3000/upload" method="POST"
+                                            enctype="multipart/form-data"  (change)="onFileSelected($event)" (ngSubmit) ="imageUser()" novalidate
+                                            #form='ngForm'>
+                                            <input name="myFile" type="file" ngModel required
+                                                #fileUser="ngModel">
+                                            <button type="submit" >Enviar</button>
+                                        </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" (click)="submitModify()" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- botones -->
                         <a role="button" href="{{_user.mailUser}}" class="btn btn-primary mb-2 btn-sm textBody mt-2">
                             Contact/User</a>
                         <br>
-                        <a  target="_blank" href="{{_user.contents['urlReel']}}"  role="button" class="btn btn-primary btn-sm">Demo/Reel</a>
-                       
+                        <a target="_blank" href="{{_user.contents['urlReel']}}" role="button"
+                            class="btn btn-primary btn-sm">Demo/Reel</a>
+
                     </div>
                 </div>
             </div>
@@ -276,8 +287,9 @@
                                     <input type="url" class="form-control" id="basic-url"
                                         aria-describedby="basic-addon3" placeholder="https://example.com/users/"
                                         [(ngModel)]="_user.contents['urlReel']" [ngModelOptions]="{standalone:true}">
-                                    
-                                        <button class="btn btn-primary" (click)="submitModify()" type="submit" value="Submit">Send</button>
+
+                                    <button class="btn btn-primary" (click)="submitModify()" type="submit"
+                                        value="Submit">Send</button>
                                 </div>
                                 <div>
                                     <button routerLink="/proyectCreate" type="button"
@@ -346,15 +358,15 @@
                                 <div class="row"></div>
                                 <button type="button" routerLink="/proyectDetail/{{proyect['_id']}}"
                                     class="btn btn-success  col-md-5 ">Ver</button>
-                                <button *ngIf="_user.isLogged"  (click)="removeProyect()" type="button" class="btn btn-danger offset-md-1 col-md-5"
-                                >Eliminar</button>
+                                <button *ngIf="_user.isLogged" (click)="removeProyect()" type="button"
+                                    class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div >
+        <div>
             <div>
                 <div class="titleColaboration rounded-right border-left-0">
                     <h1 class="textCreateProyect ">Colaboraciones</h1>
@@ -363,7 +375,8 @@
         </div>
         <br>
         <div class="col-md-10 offset-md-1 titleRow ">
-            <div *ngFor="let colaboration of _data.colaborationsCount; let i = index" class="colaborations rounded-right rounded">
+            <div *ngFor="let colaboration of _data.colaborationsCount; let i = index"
+                class="colaborations rounded-right rounded">
                 <table class="table table-borderless ">
                     <thead>
                         <tr class="table rounded tablehead">
@@ -402,8 +415,9 @@
                             </td>
                             <td>
                                 <div class="row"></div>
-                                <button type="button"  class="btn btn-success  col-md-5 ">User</button>
-                                <button *ngIf="_user.isLogged" type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
+                                <button type="button" class="btn btn-success  col-md-5 ">User</button>
+                                <button *ngIf="_user.isLogged" type="button"
+                                    class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>

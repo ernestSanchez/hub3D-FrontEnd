@@ -45,13 +45,13 @@ export class DataService {
   };
 
   //llamada para subida de archivos en cada proyecto
-  uploadArchives() {
-    this._http.post(this.url + "/upload", this.dataArchive)
-      .subscribe((response) => {
-        console.log(response)
-        this.dataArchive = response;
-      })
-  }
+  // uploadArchives() {
+  //   this._http.post(this.url + "/upload", this.dataArchive)
+  //     .subscribe((response) => {
+  //       console.log(response)
+  //       this.dataArchive = response;
+  //     })
+  // }
 
   //llamada a todos los proyectos//
   allProyects() {
@@ -105,7 +105,7 @@ export class DataService {
     this._http.delete(this.url + "/deleteProyect/" + proyectId)
       .subscribe((response) => {
         this.proyectContents = response;
-        console.log(response);
+       
       })
   };
 
@@ -123,7 +123,7 @@ export class DataService {
         this.dataColaboracion = response;
         // this.colaborationIdProyect = reponse[]
         this.colaborationId = response['id'];
-        console.log(this.dataColaboracion);
+        
       })
   };
 
@@ -131,7 +131,7 @@ export class DataService {
     this._http.get(this.url + "/colaborations")
       .subscribe((response) => {
         this.colaborationsCount = response;
-        console.log(this.colaborationsCount)
+       
        })
   };
 

@@ -77,7 +77,17 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-    
+
+                  <!-- <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data"> 
+                    <input name="myFile" type="file"
+                    required 
+                    name="dataImageUser"
+                    #inputdataImageUser="ngModel"
+                    [(ngModel)]="data['urlImageUser']" [ngModelOptions]="{standalone:true}">
+                   
+                    <button (click)="imageUser()" >Enviar</button>
+                </form>
+                -->
                 <br>
                 <button  class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()" type="button">REGISTER</button>
                 <hr>

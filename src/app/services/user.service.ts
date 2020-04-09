@@ -9,7 +9,7 @@ import { Router, Routes } from '@angular/router';
 })
 export class UserService {
 
-  constructor(public _http: HttpClient, public _router: Router ) { }
+  constructor(public _http: HttpClient, public _router: Router) { }
 
   //variables para ocultar elementos si no estas logeado
 
@@ -20,18 +20,19 @@ export class UserService {
   infoUserSatus: boolean = false;
   infoUserWorkStatus: boolean = false;
   infoUserLocation: boolean = false;
+  imgUser: boolean = false;
 
-//variable para abreviar direccion de la api
+  //variable para abreviar direccion de la api
 
   url: string = "http://localhost:3000"
 
-//var id de usuario logeado
+  //var id de usuario logeado
   loggedId: string = "";
 
- //var contenido de usuario logeado 
+  //var contenido de usuario logeado 
   contents: object = {};
 
-  photoUser:object ={};
+
 
   //var todos los usuarios en la api
   allUsersContents: object = {};
@@ -39,10 +40,10 @@ export class UserService {
   // var para poner el mail de usuario en el boton de contact
   userMail = this.contents['email']
   mailUser = `mailto:${this.userMail}`;
+  urlImgUser: string = ""
 
 
-
-//llamada login y autentificacion de datos comparacion envio de cookies
+  //llamada login y autentificacion de datos comparacion envio de cookies
   login(formData) {
     this._http.post(this.url + "/login", formData)
       .subscribe((response) => {
@@ -55,9 +56,9 @@ export class UserService {
           this.infoUserSatus = true;
           this.infoUserWorkStatus = true;
           this.infoUserLocation = true;
-          console.log(this.loggedId);
+
           document["cookie"] = `megazord=${response["token"]};path=/`;
-          
+
 
           this._router.navigateByUrl("/home")
 
@@ -66,16 +67,10 @@ export class UserService {
   }
 
 
-  // imageUser(data){
-  //   this._http.post(this.url + "/upload",data)
-  //     .subscribe((response) => {
-  //            this.photoUser = response;
-  //      })
-  // }
 
 
 
-//llamada a todos los usuarios
+  //llamada a todos los usuarios
   allUsersContent() {
     this._http.get(this.url + "/users")
       .subscribe((response) => {
@@ -83,12 +78,13 @@ export class UserService {
       })
   }
 
-//llamada a contenido de usuario por id
+  //llamada a contenido de usuario por id
   userContent() {
     this._http.get(this.url + "/user/" + this.loggedId)
       .subscribe((response) => {
         this.contents = response
-        console.log(this.contents)
+        this.urlImgUser = response['urlImageUser']
+
       })
   }
 
@@ -97,15 +93,21 @@ export class UserService {
     const headers = new HttpHeaders({ "Set-Cookie": document["cookie"] });
     // let options = { withCredentials: true };
 
-    this._http.put(this.url + "/modifyUser", newUserModify,  {headers} )
+    this._http.put(this.url + "/modifyUser", newUserModify, { headers })
       .subscribe((response) => {
-          console.log(response)
+
       })
   }
 
+  previewImage() {
+    if (this.urlImgUser === undefined || this.urlImgUser === "") {
+      this.imgUser = true;
+    }
+
+  }
   ngOnInit(): void {
-   
-   
+
+
   }
 
 }
