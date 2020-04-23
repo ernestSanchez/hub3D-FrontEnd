@@ -78,7 +78,10 @@
     background: radial-gradient(rgba(218, 28, 235, 0.924),rgba(21, 161, 180, 0.733));
 }
 .teextUser{
-    color:white
+    color:aquamarine
+}
+.textrequi{
+    color: white;
 }
 .textBody{
     color: lightblue;;

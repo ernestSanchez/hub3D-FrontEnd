@@ -6,6 +6,10 @@
     padding: 4px;
 }
 
+.proyectHead{
+    background-color:  rgba(37, 97, 105, 0.842);
+    padding: 0;
+}
 .titleProyect{
     background-image: linear-gradient(to top, rgba(6, 19, 27, 0.335), rgba(21, 162, 180, 0.678));
  
@@ -17,7 +21,8 @@
     background-image: linear-gradient(to top, rgba(77, 109, 129, 0.287), rgba(152, 222, 231, 0.322));
 }
 .textCreateProyect{
-    color: lightblue;;
+    color: lightblue;
+    
 }
 .textBody{
     color: lightblue;;
@@ -35,22 +40,22 @@
     margin-left: 2px;
     margin-top: -6px;
 }
-.userBtn{
-   
-    width: 14vw;
+
+.cardDescription{
+    padding: 20px;
 }
-.imageCard{
-    margin-left: 113px;
-}
-.requireBtn{
-    background-image: linear-gradient(to right, rgba(218, 28, 235, 0.37) , rgba(21, 161, 180, 0.452));
-    border-color: darkslateblue;
+
+.userProyectBtn{
+ background-color: rgba(185, 247, 255, 0);
+ width: 14vw;
+ border-color: rgba(185, 247, 255, 0);
 }
 .textProyect{
     text-align: center;
+    color: lightblue;;
 }
 .bgCard {
-    background-image: linear-gradient(to top, rgba(6, 19, 27, 0.568), rgba(12, 128, 143, 0.918));
+    background-image: linear-gradient(to top, rgba(22, 99, 146, 0.644), rgba(36, 148, 163, 0.959));
 }
 .colaborations{
     background: radial-gradient(rgba(218, 28, 235, 0.514),transparent);

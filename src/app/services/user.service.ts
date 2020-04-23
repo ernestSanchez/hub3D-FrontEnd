@@ -21,6 +21,7 @@ export class UserService {
   infoUserWorkStatus: boolean = false;
   infoUserLocation: boolean = false;
   imgUser: boolean = false;
+  imgUserDefault: boolean = false;
 
   //variable para abreviar direccion de la api
 
@@ -75,6 +76,7 @@ export class UserService {
     this._http.get(this.url + "/users")
       .subscribe((response) => {
         this.allUsersContents = response
+       
       })
   }
 
@@ -88,6 +90,13 @@ export class UserService {
       })
   }
 
+  previewImage() {
+    if (this.urlImgUser !== undefined || this.urlImgUser !== "") {
+        this.imgUser =  true;
+    }
+
+  }
+
   //llamada de modificacion de usuario logeado
   userModification(newUserModify: object) {
     const headers = new HttpHeaders({ "Set-Cookie": document["cookie"] });
@@ -99,12 +108,7 @@ export class UserService {
       })
   }
 
-  previewImage() {
-    if (this.urlImgUser === undefined || this.urlImgUser === "") {
-      this.imgUser = true;
-    }
 
-  }
   ngOnInit(): void {
 
 

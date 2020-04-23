@@ -1,102 +1,129 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-    <div class="row">
-        <!-- cabecera -->
-        <div class="col-sm-4 col-md-4 titleRow ">
-            <div class="titleProyect rounded-right border-left-0">
-                <h1 class="textCreateProyect">Detalle proyecto</h1>
-            </div>
-        </div>
-    </div>
     <form name="proyectDetail" (ngSubmit)="proyectDetail.form.valid" #proyectDetail="ngForm">
         <div class="row ">
-            <!-- boton ver usuario del proyecto -->
-            <div class="col-sm-1 col-md-1 mt-5">
-                <button type="button" (click)="userProyect()" class="rounded-circle shadow p-3 userBtn requireBtn">
-                    <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
-                        alt="user" class="img-fluid" alt="Responsive image">
-                </button>
-            </div>
-            <!-- detalle proyecto y descripcion -->
-            <div class="bgCard  col-md-4  offset-md-1 mt-5 rounded">
-                <div class="textProyect">
-                    <h6 class="font-weight-bolder textCreateProyect">Proyecto:</h6>
-                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['nombre']}}</h6>
-                    <h6 class="font-weight-bolder textCreateProyect">Categoria:</h6>
-                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['categoria']}}</h6>
-                    <h6 class="font-weight-bolder textCreateProyect">Necesito/Requiero:</h6>
-                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['requierimiento']}}</h6>
-                    <h6 class="font-weight-bolder textCreateProyect">Tipo:</h6>
-                    <h6 class="teextUser font-weight-normal">{{_data.proyectContents['tipo']}}</h6>
-                    <h6 class="font-weight-bolder textCreateProyect">Descripcion proyecto y necesidad:</h6>
+            <div class="bgCard  col-md-10  offset-md-1 mt-5 rounded">
+                <div class="card-header proyectHead">
+                    <h1 class="textProyect mt-2">Detalle proyecto</h1>
                 </div>
-                <div class="card mt-3 descriptionProyect rounded">
-                    <h6 class="font-weight-normal ">{{_data.proyectContents['descripcion']}}</h6>
-                </div>
-                <!-- enviar mail al usuario para colaboracion  -->
-                <div class="mt-3" style="text-align: center;">
-                    <a href="{{_user.mailUser}}" role="button" class="btn btn-lg btn-primary requireBtn">Solicitar
-                        colaboracion</a>
-                    <!-- Button trigger modal Crear Colaboracion-->
-                    <form name="addNewColaboration" (ngSubmit)="addColaboration.form.valid && submitNewColaboration()"
-                        #addColaboration="ngForm">
-
-                        <button type="button" class="btn btn-lg btn-primary requireBtn mt-3" data-toggle="modal"
-                            data-target="#exampleModal">
-                            Crear colaboracion
-                        </button>
-
-                        <!-- Modal Crear Colaboracion-->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content colaborationsModal">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title teextUser textCreateProyect font-weight-bold" id="exampleModalLabel">Crear colaboracion</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="colaboracionEspecialidad " class="teextUser">En que
-                                                especialidad quieres colaborar</label>
-                                            <select class="form-control colaboracionEspecialidad"
-                                                id="colaboracionEspecialidad"
-                                                [(ngModel)]="_data.dataColaboracion['categoria']"
-                                                [ngModelOptions]="{standalone:true}">
-                                                <option value="">Selecciona especialidad</option>
-                                                <option value="rigger">rigger</option>
-                                                <option value="modeller">modeller</option>
-                                                <option value="animador">animador</option>
-                                            </select>
+                <div class=" row ">
+                    <div class="mt-2 col-md-2">
+                        <button type="button" (click)="userProyect()" class="userProyectBtn">
+                            <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+                                alt="user" class="img-thumbnail rounded-circle " alt="Responsive image">
+                                <h5 class="teextUser">User: {{_data.userDataProyect['username']}}</h5>
+                            </button>
+                        
+                    </div>
+                    <div class="col-md-9 mt-5 ">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-1 mt-2">
+                                <div>
+                                    <h6><strong class="textCreateProyect">Proyecto : </strong><span><i
+                                                class="teextUser">{{_data.proyectContents['nombre']}}</i></span></h6>
+                                    <h6><strong class="textCreateProyect">Categoria : </strong><span><i
+                                                class="teextUser">{{_data.proyectContents['categoria']}}</i></span></h6>
+                                    <h6><strong class="textCreateProyect">Necesito/Requiero : </strong><span><i
+                                                class="teextUser">{{_data.proyectContents['requierimiento']}}</i></span></h6>
+                                    <h6><strong class="textCreateProyect">Tipo : </strong><span><i
+                                                class="teextUser">{{_data.proyectContents['tipo']}}</i></span></h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-7 mt-3 ">
+                                <div class="row ">
+                                    <div class="col-sm-6 col-md-5 offset-md-1">
+                                        <div class="card imageCard">
+                                            <p>IMAGE PROYECT</p>
+                                            <p>IMAGE PROYECT</p>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button *ngIf="_user.isLogged" type="button" (click)="submitNewColaboration()"
-                                            class="btn btn-primary">Crear colaboracion</button>
+                                    <div class="col-sm-6 col-md-5  mt-1">
+                                        <div class="card imageCard ">
+                                            <p>IMAGE PROYECT</p>
+                                            <p>IMAGE PROYECT</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <br>
+        
+                            <div class="cardDescription">
+                                <h6 class="font-weight-bolder  textProyect">Descripcion proyecto y necesidad:</h6>
+                                <div class="card mt-3 descriptionProyect rounded">
+                                    <h6 class="font-weight-normal ">{{_data.proyectContents['descripcion']}}</h6>
+                                </div>
+                            </div>
+                            <!-- enviar mail al usuario para colaboracion  -->
+                            <div class="col-11 offset-md-1">
+                                <div class="row mt-3" style="text-align: center;">
+        
+                                    <div class="col-md-4 offset-md-1 mt-2">
+                                        <a href="{{_user.mailUser}}" role="button"
+                                            class="btn btn-lg btn-primary requireBtn">Solicitar
+                                            colaboracion</a>
+                                    </div>
+        
+        
+                                    <!-- Button trigger modal Crear Colaboracion-->
+                                    <form class="col-sm-12 col-md-7" name="addNewColaboration"
+                                        (ngSubmit)="addColaboration.form.valid && submitNewColaboration()"
+                                        #addColaboration="ngForm">
+                                        <div>
+                                            <button type="button" class="btn btn-lg btn-primary requireBtn mt-2"
+                                                data-toggle="modal" data-target="#exampleModal">
+                                                Crear colaboracion
+                                            </button>
+                                        </div>
+        
+                                        <!-- Modal Crear Colaboracion-->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content colaborationsModal">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title teextUser textCreateProyect font-weight-bold"
+                                                            id="exampleModalLabel">Crear colaboracion</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="colaboracionEspecialidad " class="teextUser">En que
+                                                                especialidad quieres colaborar</label>
+                                                            <select class="form-control colaboracionEspecialidad"
+                                                                id="colaboracionEspecialidad"
+                                                                [(ngModel)]="_data.dataColaboracion['categoria']"
+                                                                [ngModelOptions]="{standalone:true}">
+                                                                <option value="">Selecciona especialidad</option>
+                                                                <option value="rigger">rigger</option>
+                                                                <option value="modeller">modeller</option>
+                                                                <option value="animador">animador</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button *ngIf="_user.isLogged" type="button"
+                                                            (click)="submitNewColaboration()" class="btn btn-primary">Crear
+                                                            colaboracion</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Fin modal create colaboracion -->
+                                    </form>
+                                </div>
+                                <br>
+        
+                            </div>
+                            <br>
                         </div>
-                    </form>
-                    <!-- Fin modal create colaboracion -->
+                    </div>
                 </div>
-                <br>
-            </div>
-            <!--imagenes proyecto -->
-            <div class="row">
-                <div class="card imageCard col-sm-3 col-md-5  mt-3">
-                    <p>IMAGE PROYECT</p>
-                    <p>IMAGE PROYECT</p>
-                </div>
-                <div class="card imageCard col-sm-3 col-md-5  mt-3">
-                    <p>IMAGE PROYECT</p>
-                    <p>IMAGE PROYECT</p>
-                </div>
-
+                
             </div>
         </div>
         <!--titulo listado de colaboraciones -->
@@ -110,7 +137,8 @@
         <br>
         <!-- listado colaboraciones -->
         <div class="col-md-10 offset-md-1 titleRow ">
-            <div *ngFor="let colaboration of _data.colaborationsCount; let i = index" class="colaborations rounded-right rounded">
+            <div *ngFor="let colaboration of _data.colaborationsCount; let i = index"
+                class="colaborations rounded-right rounded">
                 <table class="table table-borderless ">
                     <thead>
                         <tr class="table rounded tablehead">
@@ -149,8 +177,9 @@
                             </td>
                             <td>
                                 <div class="row"></div>
-                                <button type="button"  class="btn btn-success  col-md-5 ">User</button>
-                                <button *ngIf="_user.isLogged" type="button" class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
+                                <button type="button" class="btn btn-success  col-md-5 ">User</button>
+                                <button *ngIf="_user.isLogged" type="button"
+                                    class="btn btn-danger offset-md-1 col-md-5">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>

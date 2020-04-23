@@ -23,14 +23,12 @@ export class ProyectdetailComponent implements OnInit {
 
    //funcion para ver el usuario del proyecto seleccionado
    userProyect(){
-    if (this._user.isLogged ==  false){
-       this._user.loggedId = this._data.proyectContents['user_id']
-       console.log(this._user.loggedId)
+        this._user.loggedId = this._data.userDataProyect['_id']
+        console.log(this._user.loggedId)
        this._router.navigateByUrl("/user/"+this._user.loggedId)
     }
-  }
 
-
+  
 
 
 
@@ -46,8 +44,10 @@ export class ProyectdetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this._data.userContentProyect(this._data.userId);
+    this._user.allUsersContent();
     this._data.allColaborations();
-    this._data.allProyects();
+    
   }
   
 

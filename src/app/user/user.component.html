@@ -11,8 +11,8 @@
                     <img  *ngIf="_user.imgUser" src="{{_user.contents['urlImageUser']}}"
                         alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">  
 
-                    <img *ngIf="!_user.imgUser" src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
-                        alt="user" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
+                    <img *ngIf="_user.imgUserDefault " src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png"
+                        alt="userout" class="userPhoto rounded-circle shadow p-3 mb-5 bg-white">
                     </div>
                     <div class="col-10 col-md-1 offset-md-1 userButtons">
 
@@ -44,7 +44,7 @@
                                         </form>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" (click)="submitModify()" class="btn btn-primary">Save changes</button>
+                                            <button type="button" (click)="submitModify()"  class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
                                 </div>

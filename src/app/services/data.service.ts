@@ -15,14 +15,17 @@ export class DataService {
 
   url: string = "http://localhost:3000";
 
-  //variables con los contendos de los proyectos
+  //variables con los contenidos de los proyectos
   dataProyect: object = {};
   proyectContents: object = {};
+  userDataProyect: object = {};
   dataArchive = {};
   proyectsCount: object = [];
   userProyects: object = [];
   proyectId: string = "";
+  userId:string = "";
   deleteIdProyect:string = "";
+
   ///// colaboraciones //////
   dataColaboracion: object = {};
   colaborationId: string = "";
@@ -30,6 +33,7 @@ export class DataService {
   ColaboretionsUserProyect: object = [];
   colaborationUser: object = [];
   // usersInColaboration: object = [];
+  
   ///////////////////// llamadas proyectos ////////////////////////
 
   //llamada creacion proyecto le añado el id del user para luego relacionarlo//
@@ -43,15 +47,6 @@ export class DataService {
         this._router.navigateByUrl("/proyectDetail/" + this.proyectId)
       })
   };
-
-  //llamada para subida de archivos en cada proyecto
-  // uploadArchives() {
-  //   this._http.post(this.url + "/upload", this.dataArchive)
-  //     .subscribe((response) => {
-  //       console.log(response)
-  //       this.dataArchive = response;
-  //     })
-  // }
 
   //llamada a todos los proyectos//
   allProyects() {
@@ -84,7 +79,6 @@ export class DataService {
   }
 
   filterUserProyects(user: string) {
-    // user = this._user.loggedId
     this.filterProyectsUser({ "user_id": user })
   }
 
@@ -92,12 +86,24 @@ export class DataService {
   //llamada proyecto por su id (id añadido en proyectdetail.ts /constructor)//
 
   ProyectContent(proyectId) {
+    console.log(proyectId)
     this._http.get(this.url + "/proyect/" + proyectId)
       .subscribe((response) => {
         this.proyectContents = response;
-        // console.log(response);
+        this.userId = response['user_id'];
+        console.log(this.userId);
       })
   };
+
+
+  userContentProyect(id) {
+    id = this.userId;
+   this._http.get(this.url +"/user/"+id)
+   .subscribe((response)=>{
+       this.userDataProyect = response
+       console.log(this.userDataProyect)
+   })
+}
 
   //llamada eliminar proyecto
 
@@ -137,17 +143,9 @@ export class DataService {
 
 
 
-//  userColaborations(id) {
-//     for (let i = 0; i < this.colaborationsCount.length; i++) {
-//       if (id == this.colaborationsCount[i].user_id) {
-//         this.userContent(this.colaborationsCount[i].user_id)
-//       }
-//     }
-//   }
   userContent(user) {
     this._http.get(this.url + "/user/" + user)
       .subscribe((response) => {
-        // this.usersInColaboration = response;
         console.log(response)
       })
      }
@@ -160,6 +158,5 @@ export class DataService {
         console.log(response);
       })
   };
-
 
 }

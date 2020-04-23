@@ -17,8 +17,7 @@ export class RegisterComponent implements OnInit {
   url: string = "http://localhost:3000"
 
   data = {};
-  // dataImageUser: object = { "urlImageUser": "" };
-  // dataImageUser: string = "";
+
   photoUser: string = "";
 
   confirmPassword: object = { "password": "" };

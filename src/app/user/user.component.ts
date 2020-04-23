@@ -47,7 +47,7 @@ export class UserComponent implements OnInit {
     }
     console.log(newUserModify)
     this._user.userModification(newUserModify);
-    this._user.imgUser = true;
+
   }
   selectedFile: File = null;
 
@@ -79,8 +79,8 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._data.filterUserProyects(this._user.loggedId);
     this._user.previewImage()
+    this._data.filterUserProyects(this._user.loggedId);
     this._data.allColaborations();
     this._user.userContent();
     this._data.allColaborations();
